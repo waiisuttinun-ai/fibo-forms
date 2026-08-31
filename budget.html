@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>แบบฟอร์มงบลงทุนปี 2571</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+
+<style>
+/* ─── Tokens ─── */
+:root {
+  --navy:       #1B2F6E;
+  --navy-mid:   #2C4494;
+  --navy-light: #3D5BBF;
+  --amber:      #F0A500;
+  --amber-lt:   #FEF4CC;
+  --teal:       #2E7D5E;
+  --teal-lt:    #E6F4EE;
+  --coral:      #C0392B;
+  --coral-lt:   #FDECEA;
+  --page-bg:    #E8ECF4;
+  --surface:    #FFFFFF;
+  --stripe:     #F2F5FB;
+  --border:     #C4CDE0;
+  --text:       #1A2340;
+  --muted:      #56657A;
+  --placeholder:#96A4BC;
+  --field-bg:   #FFFFFF;
+  --field-focus:#EDF0FA;
+  --shadow:     0 2px 14px rgba(27,47,110,.10);
+  --sig-line:   #B4C0D8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy:       #3D5BBF;
+    --navy-mid:   #4A6CD0;
+    --navy-light: #6080E0;
+    --amber:      #F5B800;
+    --amber-lt:   #3A2E00;
+    --teal:       #4DAA85;
+    --teal-lt:    #0C2A1E;
+    --coral:      #E05A4A;
+    --coral-lt:   #3A0C08;
+    --page-bg:    #0E1625;
+    --surface:    #182236;
+    --stripe:     #1C2A42;
+    --border:     #2C3D5C;
+    --text:       #E0E8F8;
+    --muted:      #8090B0;
+    --placeholder:#4A5E7A;
+    --field-bg:   #1C2A42;
+    --field-focus:#1E3055;
+    --shadow:     0 2px 16px rgba(0,0,0,.4);
+    --sig-line:   #304060;
+  }
+}
+:root[data-theme="dark"] {
+  --navy:       #3D5BBF;
+  --navy-mid:   #4A6CD0;
+  --navy-light: #6080E0;
+  --amber:      #F5B800;
+  --amber-lt:   #3A2E00;
+  --teal:       #4DAA85;
+  --teal-lt:    #0C2A1E;
+  --coral:      #E05A4A;
+  --coral-lt:   #3A0C08;
+  --page-bg:    #0E1625;
+  --surface:    #182236;
+  --stripe:     #1C2A42;
+  --border:     #2C3D5C;
+  --text:       #E0E8F8;
+  --muted:      #8090B0;
+  --placeholder:#4A5E7A;
+  --field-bg:   #1C2A42;
+  --field-focus:#1E3055;
+  --shadow:     0 2px 16px rgba(0,0,0,.4);
+  --sig-line:   #304060;
+}
+
+/* ─── Reset ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Sarabun',system-ui,sans-serif;
+  font-size:14.5px;line-height:1.7;
+  color:var(--text);background:var(--page-bg);
+  padding:28px 14px 72px;
+}
+
+/* ─── Shell ─── */
+.doc{max-width:820px;margin:0 auto;background:var(--surface);box-shadow:var(--shadow);}
+
+/* ─── Top stripe ─── */
+.top-stripe{height:4px;background:linear-gradient(90deg,var(--navy) 55%,var(--amber) 100%);}
+
+/* ─── Banner ─── */
+.banner{background:var(--navy);padding:24px 36px 20px;position:relative;overflow:hidden;}
+.banner::after{
+  content:'';position:absolute;right:-60px;top:-40px;
+  width:240px;height:240px;border-radius:50%;
+  background:rgba(255,255,255,.04);pointer-events:none;
+}
+.banner-kicker{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:6px;
+}
+.banner-title{font-size:17px;font-weight:800;color:#fff;line-height:1.4;text-wrap:balance;}
+.banner-sub{font-size:13px;color:rgba(255,255,255,.6);margin-top:5px;}
+
+/* ─── Doc header fields ─── */
+.doc-meta{
+  padding:16px 36px;border-bottom:1.5px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;
+  background:var(--stripe);
+}
+.mf label{
+  display:block;font-size:11px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:3px;
+}
+.mf input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13.5px;
+  color:var(--text);background:var(--field-bg);
+  border:1px solid var(--border);border-radius:2px;
+  padding:6px 9px;outline:none;transition:border-color .15s;
+}
+.mf input:focus{border-color:var(--navy-mid);background:var(--field-focus);}
+.mf input::placeholder{color:var(--placeholder);}
+
+/* ─── Section ─── */
+.sec{margin:0;}
+.sec-hd{
+  background:var(--navy);padding:9px 36px;
+  display:flex;align-items:center;gap:10px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.sec-num{
+  font-size:11px;font-weight:800;letter-spacing:.08em;
+  color:rgba(255,255,255,.55);flex-shrink:0;
+}
+.sec-title{font-size:14px;font-weight:700;color:#fff;}
+.sec-body{padding:18px 36px;}
+
+/* ─── Field helpers ─── */
+textarea.fld, input.fld {
+  width:100%;font-family:'Sarabun',sans-serif;font-size:14px;
+  color:var(--text);background:var(--field-bg);
+  border:1px solid var(--border);border-radius:2px;
+  padding:8px 10px;outline:none;
+  transition:border-color .15s,background .15s;
+}
+textarea.fld{resize:vertical;min-height:80px;}
+textarea.fld:focus,input.fld:focus{
+  border-color:var(--navy-mid);background:var(--field-focus);
+}
+textarea.fld::placeholder,input.fld::placeholder{color:var(--placeholder);}
+
+.flabel{
+  display:block;font-size:12px;font-weight:700;
+  color:var(--muted);letter-spacing:.04em;margin-bottom:4px;
+}
+.fgroup{margin-bottom:14px;}
+.fgroup:last-child{margin-bottom:0;}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+
+/* ─── Radio / Check row ─── */
+.radio-row,.check-row{display:flex;gap:18px;flex-wrap:wrap;padding:6px 0;}
+.radio-row label,.check-row label{
+  display:flex;align-items:center;gap:7px;
+  font-size:14px;color:var(--text);cursor:pointer;font-weight:500;
+}
+.radio-row input,.check-row input{
+  accent-color:var(--navy-mid);width:16px;height:16px;flex-shrink:0;
+}
+
+/* ─── Sub-items ─── */
+.sub-item{
+  display:grid;grid-template-columns:36px 1fr;gap:8px;
+  align-items:start;padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.sub-item:last-child{border-bottom:none;}
+.sub-idx{
+  font-size:12px;font-weight:700;color:var(--navy-mid);
+  padding-top:8px;text-align:right;
+}
+.sub-body{}
+
+.check-item-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:9px 12px;border-radius:2px;
+  background:var(--stripe);border:1px solid var(--border);
+  margin-bottom:8px;
+}
+.check-item-row:last-child{margin-bottom:0;}
+.check-item-row input[type="checkbox"]{
+  margin-top:2px;flex-shrink:0;width:16px;height:16px;
+  accent-color:var(--teal);
+}
+.check-item-row .ci-text{font-size:13.5px;color:var(--text);flex:1;line-height:1.6;}
+.check-item-row .ci-text strong{color:var(--teal);}
+
+/* ─── Technical spec table ─── */
+.spec-wrap{overflow-x:auto;margin-bottom:10px;}
+table.spec-tbl{
+  width:100%;border-collapse:collapse;
+  font-size:13px;font-variant-numeric:tabular-nums;
+}
+table.spec-tbl thead th{
+  background:var(--teal);color:#fff;
+  font-weight:700;font-size:12px;letter-spacing:.03em;
+  padding:8px 10px;text-align:left;border:1px solid rgba(0,0,0,.1);
+  white-space:nowrap;
+}
+table.spec-tbl thead th:first-child{width:44px;text-align:center;}
+table.spec-tbl tbody td{
+  border:1px solid var(--border);
+  vertical-align:top;padding:0;
+}
+table.spec-tbl tbody tr:nth-child(even) td{background:var(--stripe);}
+.td-no{
+  text-align:center;font-weight:700;font-size:13px;
+  color:var(--teal);padding:8px 6px;
+}
+.req-ta{
+  width:100%;min-height:54px;resize:vertical;
+  font-family:'Sarabun',sans-serif;font-size:13px;color:var(--text);
+  background:var(--field-bg);border:1px solid var(--border);border-radius:4px;
+  padding:5px 7px;outline:none;line-height:1.55;
+}
+.req-ta:focus{background:var(--field-focus);border-color:var(--navy-light);}
+.td-req{
+  padding:8px 10px;font-size:13px;line-height:1.6;
+  color:var(--text);min-width:200px;
+}
+.td-req strong{color:var(--navy-mid);}
+.td-inp{padding:4px;}
+.td-inp input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13px;
+  color:var(--text);background:transparent;
+  border:none;border-bottom:1px dashed var(--border);
+  padding:6px 8px;outline:none;min-width:140px;
+  transition:background .12s,border-color .12s;
+}
+.td-inp input:focus{
+  background:var(--field-focus);border-bottom-color:var(--navy-mid);
+}
+.td-inp input::placeholder{color:var(--placeholder);}
+
+/* ─── Comparison table (5.1.2) ─── */
+table.cmp-tbl{
+  width:100%;border-collapse:collapse;font-size:13px;
+}
+table.cmp-tbl thead th{
+  background:var(--navy-mid);color:#fff;
+  font-weight:700;font-size:12px;letter-spacing:.03em;
+  padding:8px 10px;border:1px solid rgba(0,0,0,.12);
+  text-align:center;
+}
+table.cmp-tbl tbody td{
+  border:1px solid var(--border);padding:4px;
+  vertical-align:top;
+}
+table.cmp-tbl tbody tr:nth-child(even) td{background:var(--stripe);}
+table.cmp-tbl input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13px;
+  color:var(--text);background:transparent;border:none;
+  padding:6px 8px;outline:none;
+  transition:background .12s;
+}
+table.cmp-tbl input:focus{background:var(--field-focus);}
+table.cmp-tbl input::placeholder{color:var(--placeholder);}
+.add-row-btn{
+  font-family:'Sarabun',sans-serif;font-size:12.5px;font-weight:600;
+  background:var(--stripe);color:var(--navy-mid);
+  border:1.5px dashed var(--border);border-radius:2px;
+  padding:7px 18px;cursor:pointer;margin-top:8px;
+  transition:background .12s,border-color .12s;
+}
+.add-row-btn:hover{background:var(--field-focus);border-color:var(--navy-mid);}
+
+/* ─── Note callout ─── */
+.callout{
+  padding:10px 14px;border-left:3px solid var(--amber);
+  background:var(--amber-lt);border-radius:0 2px 2px 0;
+  font-size:13px;color:var(--text);line-height:1.6;
+  margin-top:12px;
+}
+.callout.teal-call{border-left-color:var(--teal);background:var(--teal-lt);}
+.callout.coral-call{border-left-color:var(--coral);background:var(--coral-lt);}
+
+/* ─── Signature block ─── */
+.sig-section{
+  padding:22px 36px 30px;
+  border-top:2px solid var(--border);
+  background:var(--stripe);
+}
+.sig-section-title{
+  font-size:13px;font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--navy);
+  margin-bottom:18px;
+  padding-bottom:8px;border-bottom:2px solid var(--amber);
+  display:inline-block;
+}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.sig-col{}
+.sig-col-role{
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--amber);
+  margin-bottom:10px;
+}
+.sig-col-name{
+  font-size:13.5px;font-weight:700;color:var(--navy-mid);
+  margin-bottom:10px;
+}
+.sig-fld{margin-bottom:8px;}
+.sig-fld label{
+  display:block;font-size:11px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:3px;
+}
+.sig-fld input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13.5px;
+  color:var(--text);background:var(--field-bg);
+  border:none;border-bottom:1.5px solid var(--border);
+  padding:4px 4px;outline:none;transition:border-color .15s;
+}
+.sig-fld input:focus{border-bottom-color:var(--navy-mid);}
+.sig-fld input::placeholder{color:var(--placeholder);}
+.sig-line{border-bottom:1.5px solid var(--sig-line);margin-top:44px;margin-bottom:4px;}
+.sig-line-lbl{font-size:12px;color:var(--muted);text-align:center;}
+
+/* ─── Footer ─── */
+.footer{
+  background:var(--navy);padding:11px 36px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;
+}
+.footer p{font-size:12px;color:rgba(255,255,255,.45);}
+.footer-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy{
+  font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;
+  border:none;border-radius:2px;padding:7px 20px;
+  cursor:pointer;transition:opacity .15s;
+}
+.btn-print{background:var(--amber);color:#1A0F00;}
+.btn-pdf{background:#fff;color:var(--navy);}
+.btn-word{background:#2B579A;color:#fff;}
+.btn-excel{background:#1D6F42;color:#fff;}
+.btn-copy{background:#fff;color:var(--navy);border:1.5px solid rgba(255,255,255,.35);}
+.btn-print:hover,.btn-pdf:hover,.btn-word:hover,.btn-excel:hover,.btn-copy:hover{opacity:.85;}
+
+/* ─── Print ─── */
+@media print{
+  body{background:#fff;padding:0;}
+  .doc{box-shadow:none;max-width:100%;}
+  .banner,.sec-hd,.footer,.top-stripe,.doc-meta{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  table.spec-tbl thead th,table.cmp-tbl thead th,
+  .check-item-row,.callout,.sig-section{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .btn-print,.add-row-btn{display:none;}
+}
+@media(max-width:600px){
+  .banner,.sec-body,.sig-section,.footer{padding-left:16px;padding-right:16px;}
+  .doc-meta{grid-template-columns:1fr;padding:12px 16px;}
+  .row2,.row3{grid-template-columns:1fr;}
+  .sig-grid{grid-template-columns:1fr;}
+}
+</style>
+
+<div class="doc">
+<div class="top-stripe"></div>
+
+<!-- BANNER -->
+<div class="banner">
+  <div class="banner-kicker">สถาบันวิทยาการหุ่นยนต์ภาคสนาม · มจธ.</div>
+  <div class="banner-title">ข้อกำหนดรายละเอียดคุณลักษณะเฉพาะ<br>
+    <input id="item-name" type="text" value="" placeholder="ชื่อครุภัณฑ์ / รายการ"
+      style="width:100%;max-width:560px;font-family:'Sarabun',sans-serif;font-size:inherit;font-weight:800;
+             color:#fff;background:rgba(255,255,255,.15);border:none;border-bottom:2px solid rgba(255,255,255,.5);
+             border-radius:4px 4px 0 0;padding:4px 8px;outline:none;text-align:center;margin-top:4px;">
+  </div>
+  <div class="banner-sub">แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร</div>
+</div>
+
+<!-- DOC META -->
+<div class="doc-meta">
+  <div class="mf">
+    <label>ชื่อรายการครุภัณฑ์</label>
+    <input type="text" placeholder="ชื่อรายการครุภัณฑ์">
+  </div>
+  <div class="mf">
+    <label>งบประมาณ (บาท)</label>
+    <input type="text" placeholder="0.00">
+  </div>
+  <div class="mf">
+    <label>จำนวน</label>
+    <input type="number" value="1" min="1" style="width:70px;">
+  </div>
+  <div class="mf">
+    <label>หน่วยนับ</label>
+    <input type="text" placeholder="เช่น ชุด / เครื่อง / ตัว">
+  </div>
+  <div class="mf">
+    <label>ผู้รับผิดชอบ</label>
+    <input type="text" placeholder="ชื่อ-สกุล ผู้รับผิดชอบ">
+  </div>
+  <div class="mf">
+    <label>วันที่จัดทำ</label>
+    <input type="text" id="doc-date" placeholder="วว/ดด/ปปปป">
+  </div>
+</div>
+
+<!-- ═══ 1. ความเป็นมา ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">1</span>
+    <span class="sec-title">ความเป็นมา</span>
+  </div>
+  <div class="sec-body">
+    <div class="fgroup">
+      <label class="flabel">บริบทและเหตุผลความจำเป็น</label>
+      <textarea class="fld" style="min-height:110px;" placeholder="อธิบายบริบทของสถาบัน ความสำคัญของหุ่นยนต์เคลื่อนที่อัตโนมัติในปัจจุบัน และเหตุผลที่จำเป็นต้องจัดหา...">ปัจจุบันระบบหุ่นยนต์เคลื่อนที่อัตโนมัติ เริ่มเข้ามามีบทบาทมากขึ้นในชีวิตประจำวัน เนื่องจากสามารถนำมาใช้งานได้หลากหลาย ทั้งในเรื่องการขนส่ง หรืองานบริการต่างๆ สถาบันวิทยาการหุ่นยนต์ภาคสนาม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี มีหลักสูตรการเรียนการสอนวิชาวิทยาการหุ่นยนต์และระบบอัตโนมัติในระดับปริญญาตรี โท และเอก</textarea>
+    </div>
+    <div class="fgroup">
+      <label class="flabel">ประโยชน์ที่คาดว่าจะได้รับ</label>
+      <textarea class="fld" style="min-height:90px;" placeholder="ระบุประโยชน์ที่จะได้รับ เช่น รองรับการเรียนการสอน / สนับสนุนวิทยานิพนธ์ / ลดเวลาสร้างต้นแบบ...">1. เพื่อรองรับการเรียนการสอนในหลักสูตรวิทยาการหุ่นยนต์ฯ ในวิชาปฏิบัติการ วิชา AI และวิชาหุ่นยนต์
+2. เพื่อสนับสนุนการทำวิทยานิพนธ์ของนักศึกษาทุกระดับ
+3. เพื่อช่วยให้นักศึกษาพัฒนาซอฟต์แวร์ได้อย่างรวดเร็วและเรียนรู้การใช้เซนเซอร์ประเภทต่างๆ</textarea>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 2. วัตถุประสงค์ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">2</span>
+    <span class="sec-title">วัตถุประสงค์</span>
+  </div>
+  <div class="sec-body">
+    <div class="fgroup">
+      <label class="flabel">วัตถุประสงค์การจัดซื้อ</label>
+      <textarea class="fld" style="min-height:72px;" placeholder="ระบุวัตถุประสงค์อย่างชัดเจน...">เพื่อใช้เป็นชุดเรียนรู้หุ่นยนต์เคลื่อนที่อัตโนมัติพร้อมชุดเซ็นเซอร์ ให้นักศึกษา อาจารย์ นักวิจัย และบุคลากรของสถาบัน ได้เรียนรู้ ฝึกปฏิบัติ และพัฒนางานวิจัยต่อยอดเทคโนโลยีหุ่นยนต์เคลื่อนที่อัตโนมัติ ของสถาบันวิทยาการหุ่นยนต์ภาคสนาม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี</textarea>
+    </div>
+    <div class="row3">
+      <div class="fgroup">
+        <label class="flabel">กลุ่มเป้าหมายหลัก</label>
+        <input class="fld" type="text" placeholder="เช่น นักศึกษา ป.ตรี–เอก / นักวิจัย">
+      </div>
+      <div class="fgroup">
+        <label class="flabel">สถานที่ใช้งาน / จุดจัดวาง</label>
+        <input class="fld" type="text" placeholder="เช่น ชั้น 2 ห้องสำนักงาน">
+      </div>
+      <div class="fgroup">
+        <label class="flabel">ปีงบประมาณ</label>
+        <input class="fld" type="text" placeholder="พ.ศ. 25XX">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 3. คุณสมบัติของผู้ยื่นข้อเสนอ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">3</span>
+    <span class="sec-title">คุณสมบัติของผู้ยื่นข้อเสนอ</span>
+  </div>
+  <div class="sec-body">
+
+    <div class="sub-item">
+      <div class="sub-idx">3.1</div>
+      <div class="sub-body">
+        <div class="check-item-row">
+          <input type="checkbox" id="c31">
+          <div class="ci-text">
+            <label for="c31">ผู้ยื่นข้อเสนอต้องเป็นผู้ประกอบการ <strong>วิสาหกิจขนาดกลางและขนาดย่อม (SMEs)</strong> <em>(ถ้ามี)</em></label>
+          </div>
+        </div>
+        <div class="fgroup" style="margin-top:8px;">
+          <label class="flabel">หมายเหตุ / เงื่อนไขเพิ่มเติม (ถ้ามี)</label>
+          <input class="fld" type="text" placeholder="(ถ้ามี) ระบุรายละเอียดเพิ่มเติม">
+        </div>
+      </div>
+    </div>
+
+    <div class="sub-item">
+      <div class="sub-idx">3.2</div>
+      <div class="sub-body">
+        <div class="check-item-row">
+          <input type="checkbox" id="c32" checked>
+          <div class="ci-text">
+            <label for="c32">ผู้ยื่นข้อเสนอต้องได้รับการแต่งตั้งให้เป็น <strong>ตัวแทนจำหน่ายจากผู้ผลิต หรือตัวแทนจำหน่ายในประเทศไทย</strong></label>
+          </div>
+        </div>
+        <div class="fgroup" style="margin-top:8px;">
+          <label class="flabel">เอกสารที่ต้องแนบ</label>
+          <input class="fld" type="text" value="หนังสือแต่งตั้งตัวแทนจำหน่ายจากผู้ผลิต หรือตัวแทนจำหน่ายในประเทศไทย">
+        </div>
+        <div class="callout teal-call" style="margin-top:8px;">
+          <strong>หมายเหตุ:</strong> แนบเอกสารมาพร้อมกับไฟล์ใบเสนอราคา และให้จัดทำไฟล์เหตุผลแนบเพิ่มเติมด้วย
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ 4. คุณสมบัติทางเทคนิค ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">4</span>
+    <span class="sec-title">คุณสมบัติทางเทคนิค</span>
+  </div>
+  <div class="sec-body">
+    <div class="spec-wrap">
+      <table class="spec-tbl">
+        <thead>
+          <tr>
+            <th>ข้อที่</th>
+            <th>ข้อกำหนด / คุณลักษณะเฉพาะที่ต้องการ</th>
+          </tr>
+        </thead>
+        <tbody id="spec-body">
+          <tr>
+            <td class="td-no">4.1</td>
+            <td class="td-req"><textarea class="req-ta" placeholder="ระบุข้อกำหนด / คุณลักษณะเฉพาะ"></textarea></td>
+          </tr>
+          <tr>
+            <td class="td-no">4.2</td>
+            <td class="td-req"><textarea class="req-ta" placeholder="ระบุข้อกำหนด / คุณลักษณะเฉพาะ"></textarea></td>
+          </tr>
+          <tr>
+            <td class="td-no">4.3</td>
+            <td class="td-req"><textarea class="req-ta" placeholder="ระบุข้อกำหนด / คุณลักษณะเฉพาะ"></textarea></td>
+          </tr>
+          <tr>
+            <td class="td-no">4.4</td>
+            <td class="td-req"><textarea class="req-ta" placeholder="ระบุข้อกำหนด / คุณลักษณะเฉพาะ"></textarea></td>
+          </tr>
+          <tr>
+            <td class="td-no">4.5</td>
+            <td class="td-req"><textarea class="req-ta" placeholder="ระบุข้อกำหนด / คุณลักษณะเฉพาะ"></textarea></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn-add-row" onclick="addSpecRow()">＋ เพิ่มแถว</button>
+    </div>
+    <div class="callout teal-call">หมายเหตุ: กรอกข้อกำหนด / คุณลักษณะเฉพาะที่ต้องการให้ครบทุกข้อ กดปุ่ม “เพิ่มแถว” หากต้องการมากกว่า 5 ข้อ</div>
+  </div>
+</div>
+
+<!-- ═══ 5. คุณสมบัติอื่นๆ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">5</span>
+    <span class="sec-title">คุณสมบัติอื่นๆ</span>
+  </div>
+  <div class="sec-body">
+
+    <div style="font-size:13.5px;font-weight:700;color:var(--navy-mid);margin-bottom:12px;">5.1 เอกสารที่ต้องยื่นมาพร้อมการเสนอราคา</div>
+
+    <!-- 5.1.1 -->
+    <div class="sub-item">
+      <div class="sub-idx">5.1.1</div>
+      <div class="sub-body">
+        <div class="check-item-row">
+          <input type="checkbox" id="d511">
+          <div class="ci-text">
+            <label for="d511"><strong>แคตตาล็อก (Catalog / Datasheet)</strong> ตัวจริงหรือสำเนารับรองถูกต้อง<br>
+            <small>หากคณะกรรมการฯ ประสงค์ดูต้นฉบับ ผู้ยื่นข้อเสนอต้องนำมาภายใน <strong>7 วัน</strong> นับถัดจากวันเสนอราคา</small></label>
+          </div>
+        </div>
+        <div class="callout teal-call" style="margin-top:8px;">
+          <strong>หมายเหตุ:</strong> แนบเอกสารมาพร้อมกับไฟล์ใบเสนอราคา
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.2 Installation -->
+    <div style="font-size:13.5px;font-weight:700;color:var(--navy-mid);margin:20px 0 12px;">5.2 การติดตั้งและส่งมอบ</div>
+
+    <div class="sub-item">
+      <div class="sub-idx">5.2.1</div>
+      <div class="sub-body">
+        <div class="row2">
+          <div class="fgroup">
+            <label class="flabel">ระยะเวลาส่งมอบ (วัน นับถัดจากวันลงนามสัญญา)</label>
+            <input class="fld" type="number" value="120" min="1" placeholder="จำนวนวัน">
+          </div>
+          <div class="fgroup">
+            <label class="flabel">สถานที่ส่งมอบ</label>
+            <input class="fld" type="text" value="สถาบันวิทยาการหุ่นยนต์ภาคสนาม มจธ.">
+          </div>
+        </div>
+        <div class="fgroup">
+          <label class="flabel">เงื่อนไขการส่งมอบและฝึกอบรม</label>
+          <textarea class="fld" style="min-height:60px;" placeholder="ระบุเงื่อนไข เช่น จำนวนวันฝึกอบรม / ผู้เข้าอบรม / หลักสูตร...">ผู้ยื่นข้อเสนอต้องส่งมอบพร้อมฝึกอบรมการใช้งาน ณ สถาบันวิทยาการหุ่นยนต์ภาคสนาม ภายใน 120 วัน นับถัดจากวันลงนามในสัญญา</textarea>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ 6. การรับประกัน ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">6</span>
+    <span class="sec-title">การรับประกันความชำรุดบกพร่อง</span>
+  </div>
+  <div class="sec-body">
+    <div class="row3">
+      <div class="fgroup">
+        <label class="flabel">ระยะเวลารับประกัน (ปี)</label>
+        <div class="radio-row" style="flex-wrap:wrap;gap:12px;">
+          <label><input type="radio" name="warranty" value="1" checked> 1 ปี</label>
+          <label><input type="radio" name="warranty" value="2"> 2 ปี</label>
+          <label><input type="radio" name="warranty" value="3"> 3 ปี</label>
+          <label><input type="radio" name="warranty" value="other"> อื่นๆ</label>
+        </div>
+      </div>
+      <div class="fgroup">
+        <label class="flabel">กรณีอื่นๆ (ระบุ)</label>
+        <input class="fld" type="text" placeholder="ระบุจำนวนปี">
+      </div>
+      <div class="fgroup">
+        <label class="flabel">เริ่มนับจาก</label>
+        <input class="fld" type="text" value="วันที่ตรวจรับมอบแล้วเสร็จ">
+      </div>
+    </div>
+    <div class="fgroup">
+      <label class="flabel">เงื่อนไขการรับประกัน</label>
+      <textarea class="fld" style="min-height:56px;" placeholder="ระบุรายละเอียดการรับประกัน เช่น On-site / Response time / อะไหล่ / ค่าแรง..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>สถาบันวิทยาการหุ่นยนต์ภาคสนาม (FIBO) · มจธ. · โทร. 0-2470-9721</p>
+  <div class="footer-btns">
+    <button class="btn-print" onclick="exportPDF('print')">🖨 พิมพ์</button>
+    <button class="btn-pdf" onclick="exportPDF('pdf')">📄 Export PDF</button>
+    <button id="btn-copy-word" class="btn-copy" onclick="copyForWord()">📋 คัดลอกไปวางใน Word</button>
+    <button id="btn-save-word" class="btn-word" style="display:none;" onclick="saveAsWord()">💾 บันทึก Word</button>
+    <button id="btn-save-excel" class="btn-excel" style="display:none;" onclick="saveAsExcel()">📊 บันทึก Excel</button>
+  </div>
+</div>
+
+</div><!-- /doc -->
+
+<script>
+  /* Auto date */
+  (function(){
+    const d = new Date();
+    const dd = String(d.getDate()).padStart(2,'0');
+    const mm = String(d.getMonth()+1).padStart(2,'0');
+    const be = d.getFullYear()+543;
+    const v = `${dd}/${mm}/${be}`;
+    ['doc-date','sig-date1','sig-date2','sig-date3'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el) el.value = v;
+    });
+  })();
+
+  /* Add row to spec table (section 4) */
+  function addSpecRow(){
+    const tbody = document.querySelector('#spec-body');
+    const rowCount = tbody.querySelectorAll('tr').length + 1;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="td-no"><input type="text" style="width:52px;text-align:center;" placeholder="4.${rowCount}"></td>
+      <td class="td-req"><textarea class="req-ta" placeholder="ระบุข้อกำหนด / คุณลักษณะเฉพาะ"></textarea></td>`;
+    tbody.appendChild(tr);
+    tr.querySelector('input').focus();
+  }
+
+  /* Add row to comparison table */
+
+
+  /* ── Build a baked copy of the form with all values as static text ── */
+  function bakeClone(){
+    const src = document.querySelector('.doc');
+    const clone = src.cloneNode(true);
+    const orig   = src.querySelectorAll('input, textarea, select');
+    const cloned = clone.querySelectorAll('input, textarea, select');
+    orig.forEach((el, i) => {
+      const cl = cloned[i];
+      if (!cl) return;
+      const val = el.type === 'checkbox' ? (el.checked ? '☑' : '☐')
+                : el.type === 'radio'    ? (el.checked ? '◉' : '○')
+                : (el.value.trim() || '–');
+      const span = document.createElement('span');
+      span.className = 'pdf-val';
+      span.textContent = val;
+      if (el.style.width) span.style.minWidth = el.style.width;
+      cl.replaceWith(span);
+    });
+    clone.querySelectorAll('.btn-add-row,.add-row-btn,.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy,.footer-btns,.footer')
+         .forEach(b => b.remove());
+    return clone;
+  }
+
+  /* ── Standalone print-ready HTML: opens and pops the print dialog itself ── */
+  function buildPrintHTML(){
+    const clone = bakeClone();
+    const css = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
+    const name = (document.querySelector('.doc-meta .mf input')?.value || '').trim() || 'แบบฟอร์มงบลงทุนปี 2571';
+    const closeTag = '<' + '/script>';
+    return '<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">'
+      + '<meta name="viewport" content="width=device-width,initial-scale=1">'
+      + '<title>' + _esc(name) + '</title>'
+      + '<link rel="preconnect" href="https://fonts.googleapis.com">'
+      + '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+      + '<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600;700;800&display=swap" rel="stylesheet">'
+      + '<style>' + css
+      + '\n@page{size:A4;margin:14mm 15mm;}'
+      + '\nbody{background:#fff!important;padding:0!important;margin:0!important;}'
+      + '\n.doc{box-shadow:none!important;max-width:100%!important;margin:0!important;}'
+      + '\n.pdf-val{border-bottom:none!important;white-space:pre-wrap;}'
+      + '\n.btn-add-row,.add-row-btn,.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy,.footer-btns,.footer{display:none!important;}'
+      + '\n#__banner{font-family:Sarabun,sans-serif;background:#1B3054;color:#fff;padding:12px 18px;'
+      + 'font-size:13px;font-weight:700;text-align:center;line-height:1.6;}'
+      + '\n@media print{#__banner{display:none!important;}}'
+      + '</style></head><body>'
+      + '<div id="__banner">📄 หน้าต่างสั่งพิมพ์จะเปิดขึ้นเอง — ในช่อง <u>ปลายทาง / Destination</u> ให้เลือก '
+      + '<u>บันทึกเป็น PDF / Save as PDF</u> แล้วกดบันทึก<br>'
+      + '<span style="font-weight:400;opacity:.8">ถ้าไม่เด้งขึ้น กด Ctrl+P (Windows) หรือ ⌘+P (Mac) ได้เลย</span></div>'
+      + clone.outerHTML
+      + '<script>window.addEventListener("load",function(){setTimeout(function(){window.print();},800);});' + closeTag
+      + '</body></html>';
+  }
+
+  /* ── Print / Export PDF ──
+     The artifact runs inside a sandboxed frame where window.print() is often
+     blocked outright, so the reliable path is to hand the viewer a
+     print-ready file that pops its own dialog when opened. */
+  /* Save a generated file through the browser's own download.
+     Works on any ordinary web host. */
+  function saveFile(filename, data, mime){
+    const blob = (data instanceof Blob) ? data : new Blob([data], {type: mime || 'application/octet-stream'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1500);
+  }
+
+  function exportPDF(mode){
+    mode = mode || 'print';
+    if (mode === 'pdf') {
+      const name = (document.querySelector('.doc-meta .mf input')?.value || '').trim() || 'แบบฟอร์มงบลงทุน';
+      saveFile(name.replace(/[/\\?%*:|"<>]/g, '_') + '_2571_พร้อมพิมพ์.html',
+               buildPrintHTML(), 'text/html;charset=utf-8');
+      const btn = document.querySelector('.btn-pdf');
+      if (btn) {
+        const orig = btn.textContent;
+        btn.textContent = '✅ ดาวน์โหลดแล้ว — เปิดไฟล์เพื่อพิมพ์';
+        setTimeout(function(){ btn.textContent = orig; }, 4000);
+      }
+      return;
+    }
+    printInFrame(mode);
+  }
+
+  function printInFrame(mode){
+    const clone = bakeClone();
+    const existing = document.getElementById('__pdf_overlay');
+    if (existing) existing.remove();
+
+    const overlay = document.createElement('div');
+    overlay.id = '__pdf_overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#fff;overflow:auto;padding:20px;box-sizing:border-box;';
+
+    const bar = document.createElement('div');
+    bar.id = '__pdf_hint';
+    bar.style.cssText = 'position:sticky;top:0;z-index:5;background:#1B3054;color:#fff;font-family:Sarabun,sans-serif;'
+      + 'font-size:13px;font-weight:700;padding:10px 16px;border-radius:4px;margin-bottom:14px;text-align:center;line-height:1.7;';
+    bar.innerHTML = 'กด <u>Ctrl+P</u> (Windows) หรือ <u>⌘+P</u> (Mac) เพื่อเปิดหน้าต่างสั่งพิมพ์ '
+      + 'แล้วเลือกปลายทางเป็น "บันทึกเป็น PDF"'
+      + '<button id="__pdf_close" style="margin-left:14px;font-family:Sarabun,sans-serif;font-size:12px;font-weight:700;'
+      + 'background:#F5A524;color:#1A0F00;border:none;border-radius:3px;padding:5px 14px;cursor:pointer;">ปิด</button>';
+    overlay.appendChild(bar);
+    overlay.appendChild(clone);
+    document.body.appendChild(overlay);
+
+    const styleId = '__pdf_style';
+    let ps = document.getElementById(styleId);
+    if (!ps) { ps = document.createElement('style'); ps.id = styleId; document.head.appendChild(ps); }
+    ps.textContent = `
+      @media print {
+        body > *:not(#__pdf_overlay) { display:none !important; }
+        #__pdf_overlay { position:static !important; padding:0 !important; }
+        @page { size:A4; margin:14mm 15mm; }
+        .pdf-val { border-bottom:none !important; }
+        #__pdf_hint { display:none !important; }
+        .btn-add-row,.add-row-btn,.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy,.footer-btns,.footer { display:none !important; }
+      }`;
+
+    const cleanup = () => {
+      overlay.remove();
+      ps.textContent = '';
+      window.removeEventListener('afterprint', cleanup);
+    };
+    window.addEventListener('afterprint', cleanup);
+    const closeBtn = document.getElementById('__pdf_close');
+    if (closeBtn) closeBtn.addEventListener('click', cleanup);
+
+    setTimeout(() => { try { window.print(); } catch(e) {} }, 200);
+  }
+
+  /* ═══ Word Export ═══ */
+
+  // CRC32
+  const _crc32t = (()=>{ const t=new Uint32Array(256); for(let i=0;i<256;i++){let c=i;for(let j=0;j<8;j++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);t[i]=c;} return t; })();
+  function _crc32(b){ let c=0xFFFFFFFF; for(let i=0;i<b.length;i++)c=_crc32t[(c^b[i])&0xFF]^(c>>>8); return(c^0xFFFFFFFF)>>>0; }
+  function _cat(arrs){ const n=arrs.reduce((s,a)=>s+a.length,0),o=new Uint8Array(n);let p=0;for(const a of arrs){o.set(a,p);p+=a.length;}return o; }
+
+  // Build ZIP (STORE method, no compression)
+  function _buildZip(files){
+    const enc=new TextEncoder(), parts=[], cd=[];
+    let off=0;
+    for(const f of files){
+      const nb=enc.encode(f.name);
+      const db=f.data instanceof Uint8Array?f.data:enc.encode(f.data);
+      const crc=_crc32(db), sz=db.length;
+      // local header
+      const lh=new Uint8Array(30+nb.length);
+      const lv=new DataView(lh.buffer);
+      lv.setUint32(0,0x04034b50,true); lv.setUint16(4,20,true);
+      lv.setUint16(6,0x800,true); // UTF-8 flag
+      lv.setUint32(14,crc,true); lv.setUint32(18,sz,true); lv.setUint32(22,sz,true);
+      lv.setUint16(26,nb.length,true); lh.set(nb,30);
+      // central dir entry
+      const ce=new Uint8Array(46+nb.length);
+      const cv=new DataView(ce.buffer);
+      cv.setUint32(0,0x02014b50,true); cv.setUint16(4,20,true); cv.setUint16(6,20,true);
+      cv.setUint16(8,0x800,true);
+      cv.setUint32(16,crc,true); cv.setUint32(20,sz,true); cv.setUint32(24,sz,true);
+      cv.setUint16(28,nb.length,true); cv.setUint32(42,off,true);
+      ce.set(nb,46);
+      parts.push(lh); parts.push(db); cd.push(ce);
+      off+=30+nb.length+sz;
+    }
+    const cdb=_cat(cd);
+    const eo=new Uint8Array(22);
+    const ev=new DataView(eo.buffer);
+    ev.setUint32(0,0x06054b50,true);
+    ev.setUint16(8,files.length,true); ev.setUint16(10,files.length,true);
+    ev.setUint32(12,cdb.length,true); ev.setUint32(16,off,true);
+    return _cat([...parts,cdb,eo]);
+  }
+
+  function _esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+  function _para(text, opts={}){
+    const sz=opts.sz||24, bold=opts.bold?'<w:b/>':'', center=opts.center?'<w:jc w:val="center"/>':'',
+          spacing=opts.spacing?`<w:spacing w:after="${opts.spacing}"/>`:'',
+          indent=opts.indent?`<w:ind w:left="${opts.indent}"/>`:'';
+    const ppr=`<w:pPr>${center}${spacing}${indent}<w:rPr>${bold}<w:sz w:val="${sz}"/><w:szCs w:val="${sz}"/></w:rPr></w:pPr>`;
+    const rpr=`<w:rPr>${bold}<w:sz w:val="${sz}"/><w:szCs w:val="${sz}"/></w:rPr>`;
+    const lines=String(text||'').split('\n');
+    const runs=lines.map((l,i)=>{
+      const br=i<lines.length-1?'<w:br/>':'';
+      return `<w:r>${rpr}<w:t xml:space="preserve">${_esc(l)}</w:t>${br}</w:r>`;
+    }).join('');
+    return `<w:p>${ppr}${runs}</w:p>`;
+  }
+
+  // Table wrapper — w:tblGrid is REQUIRED by the OOXML schema
+  function _tbl(colWidths, rowsXml){
+    const grid=colWidths.map(w=>`<w:gridCol w:w="${w}"/>`).join('');
+    const total=colWidths.reduce((a,b)=>a+b,0);
+    return `<w:tbl><w:tblPr><w:tblW w:w="${total}" w:type="dxa"/>`
+      +`<w:tblLayout w:type="fixed"/>`
+      +`<w:tblBorders>`
+      +`<w:top w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>`
+      +`<w:left w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>`
+      +`<w:bottom w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>`
+      +`<w:right w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>`
+      +`<w:insideH w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>`
+      +`<w:insideV w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>`
+      +`</w:tblBorders></w:tblPr>`
+      +`<w:tblGrid>${grid}</w:tblGrid>${rowsXml}</w:tbl>`;
+  }
+
+  function _tblRow(cells, opts={}){
+    const bold=opts.hdr?'<w:b/>':'';
+    const shade=opts.hdr?'<w:shd w:val="clear" w:color="auto" w:fill="1B3054"/>':'';
+    const txtColor=opts.hdr?'<w:color w:val="FFFFFF"/>':'';
+    const tcs=cells.map(c=>{
+      const w=c.w?`<w:tcW w:w="${c.w}" w:type="dxa"/>`:'';
+      const vmerge=c.vm?`<w:vMerge w:val="${c.vm}"/>`:(c.vcont?'<w:vMerge/>':'');
+      const rpr=`<w:rPr>${bold}${txtColor}<w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr>`;
+      const ppr=`<w:pPr><w:jc w:val="${c.center?'center':'left'}"/><w:rPr>${bold}${txtColor}<w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr></w:pPr>`;
+      const lines=String(c.t||'').split('\n');
+      const runs=lines.map((l,i)=>{
+        const br=i<lines.length-1?'<w:br/>':'';
+        return `<w:r>${rpr}<w:t xml:space="preserve">${_esc(l)}</w:t>${br}</w:r>`;
+      }).join('');
+      return `<w:tc><w:tcPr>${w}${vmerge}<w:tcBorders><w:top w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/><w:left w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/><w:bottom w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/><w:right w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/></w:tcBorders>${shade}<w:tcMar><w:top w:w="60" w:type="dxa"/><w:left w:w="80" w:type="dxa"/><w:bottom w:w="60" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tcMar></w:tcPr><w:p>${ppr}${runs}</w:p></w:tc>`;
+    }).join('');
+    return `<w:tr>${tcs}</w:tr>`;
+  }
+
+  function buildDocxXml(){
+    const gv=el=>el?String(el.value||'').trim():'';
+    const SECS=[...document.querySelectorAll('.sec')];
+    const SEC=n=>SECS[n-1]||document.createElement('div');
+    const fldsIn=(sec,sel)=>[...sec.querySelectorAll(sel)].map(gv);
+
+    // ── Header / meta ──
+    const bannerName=gv(document.getElementById('item-name'));
+    const mf=[...document.querySelectorAll('.doc-meta .mf input')].map(gv);
+    const [equipName,budget,qty,unit,owner,docDate]=[mf[0]||'',mf[1]||'',mf[2]||'',mf[3]||'',mf[4]||'',mf[5]||''];
+
+    // ── Section 1 ──
+    const s1=fldsIn(SEC(1),'textarea');
+
+    // ── Section 2 ──
+    const s2ta=fldsIn(SEC(2),'textarea');
+    const s2in=fldsIn(SEC(2),'input.fld');
+
+    // ── Section 3 ──
+    const s3items=[...SEC(3).querySelectorAll('.sub-item')].map(si=>({
+      idx:(si.querySelector('.sub-idx')?.textContent||'').trim(),
+      checked:!!si.querySelector('input[type="checkbox"]')?.checked,
+      label:(si.querySelector('.ci-text label')?.textContent||'').replace(/\s+/g,' ').trim(),
+      note:gv(si.querySelector('input.fld')),
+      callout:(si.querySelector('.callout')?.textContent||'').replace(/\s+/g,' ').trim(),
+    }));
+
+    // ── Section 4: spec table (ข้อที่ + ข้อกำหนด) ──
+    const specRows=[...document.querySelectorAll('#spec-body tr')].map(tr=>{
+      const tds=[...tr.querySelectorAll('td')];
+      return {
+        no:  gv(tds[0]?.querySelector('input')) || (tds[0]?.textContent||'').trim(),
+        req: gv(tds[1]?.querySelector('textarea')),
+      };
+    });
+
+    // ── Section 5: documents + delivery ──
+    const s5checks=[...SEC(5).querySelectorAll('.sub-item')].map(si=>({
+      idx:(si.querySelector('.sub-idx')?.textContent||'').trim(),
+      cb:si.querySelector('input[type="checkbox"]'),
+      label:(si.querySelector('.ci-text label')?.textContent||'').replace(/\s+/g,' ').trim(),
+      callout:(si.querySelector('.callout')?.textContent||'').replace(/\s+/g,' ').trim(),
+    })).filter(x=>x.cb);
+    const s5del=[...SEC(5).querySelectorAll('.fgroup input.fld, .fgroup textarea.fld')].map(gv);
+    const [delDays,delPlace,delNote]=[s5del[0]||'',s5del[1]||'',s5del[2]||''];
+
+    // ── Section 6: warranty ──
+    const wEl=document.querySelector('input[name="warranty"]:checked');
+    const wVal=wEl?wEl.value:'1';
+    const s6in=fldsIn(SEC(6),'input.fld');
+    const s6ta=fldsIn(SEC(6),'textarea');
+    const warrantyOther=s6in[0]||'', warrantyFrom=s6in[1]||'วันที่ตรวจรับมอบแล้วเสร็จ', warrantyNote=s6ta[0]||'';
+    const warrantyTxt = wVal==='other' ? (warrantyOther||'อื่นๆ') : (wVal+' ปี');
+
+
+    // ═══ Assemble ═══
+    let body='';
+    const H=t=>_para(t,{sz:26,bold:true,spacing:80});
+    const P=t=>_para(t,{sz:22,spacing:60,indent:360});
+
+    body+=_para('แบบฟอร์มงบลงทุนปี 2571',{sz:36,bold:true,center:true,spacing:80});
+    body+=_para('ข้อกำหนดรายละเอียดคุณลักษณะเฉพาะ',{sz:28,bold:true,center:true,spacing:40});
+    if(bannerName) body+=_para(bannerName,{sz:28,bold:true,center:true,spacing:40});
+    body+=_para('สถาบันวิทยาการหุ่นยนต์ภาคสนาม (FIBO) · มจธ. · แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร',{sz:20,center:true,spacing:200});
+
+    // Meta table
+    body+=_tbl([1900,2900,1700,2860],
+        _tblRow([{t:'ชื่อรายการครุภัณฑ์',center:true},{t:equipName},{t:'งบประมาณ (บาท)',center:true},{t:budget}])
+      + _tblRow([{t:'จำนวน',center:true},{t:qty},{t:'หน่วยนับ',center:true},{t:unit}])
+      + _tblRow([{t:'ผู้รับผิดชอบ',center:true},{t:owner},{t:'วันที่จัดทำ',center:true},{t:docDate}]));
+    body+='<w:p/>';
+
+    // 1
+    body+=H('1. ความเป็นมา');
+    body+=P(s1[0]||'–');
+    if(s1[1]) body+=P(s1[1]);
+
+    // 2
+    body+=H('2. วัตถุประสงค์');
+    body+=P(s2ta[0]||'–');
+    if(s2in[0]) body+=P('กลุ่มเป้าหมายหลัก: '+s2in[0]);
+    if(s2in[1]) body+=P('สถานที่ใช้งาน: '+s2in[1]);
+    if(s2in[2]) body+=P('ปีงบประมาณ: '+s2in[2]);
+
+    // 3
+    body+=H('3. คุณสมบัติของผู้ยื่นข้อเสนอ');
+    s3items.forEach(it=>{
+      body+=P((it.idx?it.idx+' ':'')+(it.checked?'[/] ':'[ ] ')+it.label);
+      if(it.note) body+=_para('เอกสารที่ต้องแนบ: '+it.note,{sz:20,spacing:60,indent:720});
+      if(it.callout) body+=_para(it.callout,{sz:20,bold:true,spacing:60,indent:720});
+    });
+
+    // 4
+    body+=H('4. คุณสมบัติทางเทคนิค');
+    body+=_tbl([900,8460],
+      _tblRow([{t:'ข้อที่',center:true},{t:'ข้อกำหนด / คุณลักษณะเฉพาะที่ต้องการ',center:true}],{hdr:true})
+      + specRows.map(r=>_tblRow([{t:r.no,center:true},{t:r.req}])).join(''));
+    body+='<w:p/>';
+
+    // 5
+    body+=H('5. คุณสมบัติอื่นๆ');
+    body+=_para('5.1 เอกสารที่ต้องยื่นมาพร้อมการเสนอราคา',{sz:23,bold:true,spacing:60,indent:360});
+    s5checks.forEach(c=>{
+      body+=P((c.idx?c.idx+' ':'')+(c.cb.checked?'[/] ':'[ ] ')+c.label);
+      if(c.callout) body+=_para(c.callout,{sz:20,bold:true,spacing:60,indent:720});
+    });
+    body+=_para('5.2 การติดตั้งและส่งมอบ',{sz:23,bold:true,spacing:60,indent:360});
+    if(delDays)  body+=P('ระยะเวลาส่งมอบ: '+delDays+' วัน นับถัดจากวันลงนามสัญญา');
+    if(delPlace) body+=P('สถานที่ส่งมอบ: '+delPlace);
+    if(delNote)  body+=P('เงื่อนไขการส่งมอบและฝึกอบรม: '+delNote);
+
+    // 6
+    body+=H('6. การรับประกันความชำรุดบกพร่อง');
+    body+=P('ระยะเวลารับประกัน: '+warrantyTxt);
+    body+=P('เริ่มนับจาก: '+warrantyFrom);
+    if(warrantyNote) body+=P('เงื่อนไขการรับประกัน: '+warrantyNote);
+
+    body+='<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1418" w:header="709" w:footer="709" w:gutter="0"/></w:sectPr>';
+
+    const ns='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
+      +'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+    return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+      +'<w:document '+ns+'><w:body>'+body+'</w:body></w:document>';
+  }
+  async function saveAsWord(){
+    const btn=document.getElementById('btn-save-word');
+    const origText=btn.textContent;
+    btn.textContent='⏳ กำลังสร้าง...'; btn.disabled=true;
+    try{
+      const docXml=buildDocxXml();
+      const enc=new TextEncoder();
+
+      const ctXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`;
+      const relsXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`;
+      const wordRelsXml=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"></Relationships>`;
+
+      const zipData=_buildZip([
+        {name:'[Content_Types].xml', data:enc.encode(ctXml)},
+        {name:'_rels/.rels',         data:enc.encode(relsXml)},
+        {name:'word/document.xml',   data:enc.encode(docXml)},
+        {name:'word/_rels/document.xml.rels', data:enc.encode(wordRelsXml)},
+      ]);
+
+      const equipName=document.querySelector('.doc-meta .mf input')?.value.trim()||'แบบฟอร์มงบลงทุน';
+      const filename=equipName.replace(/[/\\?%*:|"<>]/g,'_')+'_2571.docx';
+
+      saveFile(filename, new Blob([zipData], {type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}));
+      btn.textContent='✅ บันทึกแล้ว!';
+      setTimeout(()=>{ btn.textContent=origText; btn.disabled=false; },2500);
+    }catch(e){
+      console.error(e);
+      const code=e&&e.code;
+      if(code==='declined'){ btn.textContent=origText; btn.disabled=false; return; }
+      if(code==='extension_not_enabled'){
+        btn.textContent='⚠️ .docx ถูกปิด — ลอง .txt';
+        btn.disabled=false;
+      } else {
+        btn.textContent='❌ '+( code||e.message||'เกิดข้อผิดพลาด');
+        setTimeout(()=>{ btn.textContent=origText; btn.disabled=false; },3000);
+      }
+    }
+  }
+
+
+  /* ═══ Excel (CSV) Export ═══
+     .xlsx is not an allowed download type in this runtime, so we emit CSV with
+     a UTF-8 BOM — Excel opens it natively with Thai text intact, and the user
+     can Save As .xlsx from there. Layout is one flat table with a category
+     column so several forms can be stacked and filtered in one sheet. */
+
+  function _csvCell(v){
+    const s = String(v == null ? '' : v);
+    return /[",\n\r]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+  }
+
+  function buildCSV(){
+    const gv = el => el ? String(el.value || '').trim() : '';
+    const SECS = [...document.querySelectorAll('.sec')];
+    const SEC = n => SECS[n-1] || document.createElement('div');
+    const pick = (sec, sel) => [...sec.querySelectorAll(sel)].map(gv);
+
+    const rows = [];
+    const add = (cat, topic, detail, offered, ref) =>
+      rows.push([cat, topic, detail || '', offered || '', ref || '']);
+
+    // ── General ──
+    const mf = [...document.querySelectorAll('.doc-meta .mf input')].map(gv);
+    const bannerName = gv(document.getElementById('item-name'));
+    const G = 'ข้อมูลทั่วไป';
+    add(G, 'ชื่อครุภัณฑ์ (หัวเรื่อง)', bannerName);
+    ['ชื่อรายการครุภัณฑ์','งบประมาณ (บาท)','จำนวน','หน่วยนับ','ผู้รับผิดชอบ','วันที่จัดทำ']
+      .forEach((lbl, i) => add(G, lbl, mf[i] || ''));
+
+    // ── 1 & 2 ──
+    const s1 = pick(SEC(1), 'textarea');
+    add('1. ความเป็นมา', 'บริบทและเหตุผลความจำเป็น', s1[0] || '');
+    add('1. ความเป็นมา', 'ประโยชน์ที่คาดว่าจะได้รับ', s1[1] || '');
+
+    const s2ta = pick(SEC(2), 'textarea'), s2in = pick(SEC(2), 'input.fld');
+    add('2. วัตถุประสงค์', 'วัตถุประสงค์การจัดซื้อ', s2ta[0] || '');
+    add('2. วัตถุประสงค์', 'กลุ่มเป้าหมายหลัก', s2in[0] || '');
+    add('2. วัตถุประสงค์', 'สถานที่ใช้งาน', s2in[1] || '');
+    add('2. วัตถุประสงค์', 'ปีงบประมาณ', s2in[2] || '');
+
+    // ── 3 ──
+    [...SEC(3).querySelectorAll('.sub-item')].forEach(si => {
+      const idx = (si.querySelector('.sub-idx')?.textContent || '').trim();
+      const cb = si.querySelector('input[type="checkbox"]');
+      const lbl = (si.querySelector('.ci-text label')?.textContent || '').replace(/\s+/g, ' ').trim();
+      const note = gv(si.querySelector('input.fld'));
+      const callout = (si.querySelector('.callout')?.textContent || '').replace(/\s+/g, ' ').trim();
+      add('3. คุณสมบัติผู้ยื่นข้อเสนอ', idx, lbl, cb && cb.checked ? 'เลือก' : 'ไม่เลือก',
+          [note, callout].filter(Boolean).join(' — '));
+    });
+
+    // ── 4 spec table ──
+    [...document.querySelectorAll('#spec-body tr')].forEach(tr => {
+      const tds = [...tr.querySelectorAll('td')];
+      const no  = gv(tds[0]?.querySelector('input')) || (tds[0]?.textContent || '').trim();
+      const req = gv(tds[1]?.querySelector('textarea'));
+      if (no || req) add('4. คุณสมบัติทางเทคนิค', no, req);
+    });
+
+    // ── 5 ──
+    [...SEC(5).querySelectorAll('.sub-item')].forEach(si => {
+      const cb = si.querySelector('input[type="checkbox"]');
+      if (!cb) return;
+      const idx = (si.querySelector('.sub-idx')?.textContent || '').trim();
+      const lbl = (si.querySelector('.ci-text label')?.textContent || '').replace(/\s+/g, ' ').trim();
+      const co = (si.querySelector('.callout')?.textContent || '').replace(/\s+/g, ' ').trim();
+      add('5. เอกสารที่ต้องยื่น', idx, lbl, cb.checked ? 'เลือก' : 'ไม่เลือก', co);
+    });
+    const s5 = [...SEC(5).querySelectorAll('.fgroup input.fld, .fgroup textarea.fld')].map(gv);
+    add('5. การติดตั้งและส่งมอบ', 'ระยะเวลาส่งมอบ (วัน)', s5[0] || '');
+    add('5. การติดตั้งและส่งมอบ', 'สถานที่ส่งมอบ', s5[1] || '');
+    add('5. การติดตั้งและส่งมอบ', 'เงื่อนไขการส่งมอบและฝึกอบรม', s5[2] || '');
+
+    // ── 6 ──
+    const wEl = document.querySelector('input[name="warranty"]:checked');
+    const wVal = wEl ? wEl.value : '1';
+    const s6in = pick(SEC(6), 'input.fld'), s6ta = pick(SEC(6), 'textarea');
+    add('6. การรับประกัน', 'ระยะเวลารับประกัน', wVal === 'other' ? (s6in[0] || 'อื่นๆ') : wVal + ' ปี');
+    add('6. การรับประกัน', 'เริ่มนับจาก', s6in[1] || '');
+    add('6. การรับประกัน', 'เงื่อนไขการรับประกัน', s6ta[0] || '');
+
+    const header = ['หมวด', 'หัวข้อ / ข้อที่', 'รายละเอียด', 'สถานะ / หมายเหตุ', 'เพิ่มเติม'];
+    const body = [header, ...rows]
+      .map(r => r.map(_csvCell).join(','))
+      .join('\r\n');
+    return '﻿' + body;   // BOM so Excel reads Thai correctly
+  }
+
+  async function saveAsExcel(){
+    const btn = document.getElementById('btn-save-excel');
+    const orig = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = '⏳ กำลังสร้าง...'; btn.disabled = true; }
+    try {
+      const name = (document.querySelector('.doc-meta .mf input')?.value || '').trim() || 'แบบฟอร์มงบลงทุน';
+      const safe = name.replace(/[/\\?%*:|"<>]/g, '_');
+      saveFile(safe + '_2571.csv', buildCSV(), 'text/csv;charset=utf-8');
+      if (btn) btn.textContent = '✅ บันทึกแล้ว!';
+      setTimeout(() => { if (btn) { btn.textContent = orig; btn.disabled = false; } }, 2500);
+    } catch (e) {
+      console.error(e);
+      if (e && e.code === 'declined') { if (btn) { btn.textContent = orig; btn.disabled = false; } return; }
+      if (btn) {
+        btn.textContent = '❌ ' + ((e && e.code) || (e && e.message) || 'เกิดข้อผิดพลาด');
+        setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
+      }
+    }
+  }
+
+
+  /* ═══ Copy to Word ═══
+     Works even on publicly-shared artifacts, where the downloads capability is
+     unavailable. Copying a DOM selection makes the browser serialize computed
+     styles into the clipboard HTML, so tables and headings survive the paste. */
+  async function copyForWord(){
+    const btn = document.getElementById('btn-copy-word');
+    const orig = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = '⏳ กำลังคัดลอก...'; btn.disabled = true; }
+
+    const clone = bakeClone();
+
+    // Word's paste flattens the label/value layout, so make the pairing explicit
+    clone.querySelectorAll('.mf label, .flabel, .sig-fld label').forEach(lb => {
+      const t = (lb.textContent || '').trim();
+      if (!t || /[:\uFF1A]$/.test(t)) return;
+      const sib = lb.nextElementSibling;
+      if (sib && sib.classList && sib.classList.contains('pdf-val')) lb.textContent = t + ' : ';
+    });
+
+    const holder = document.createElement('div');
+    // Must be rendered (not display:none) for the selection to be copyable
+    holder.style.cssText = 'position:fixed;left:-100000px;top:0;width:900px;background:#fff;z-index:-1;';
+    holder.appendChild(clone);
+    document.body.appendChild(holder);
+
+    let ok = false;
+
+    // 1) Selection + execCommand — best formatting fidelity
+    try {
+      const sel = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(holder);
+      sel.removeAllRanges();
+      sel.addRange(range);
+      ok = document.execCommand('copy');
+      sel.removeAllRanges();
+    } catch(e) { ok = false; }
+
+    // 2) Async clipboard with an embedded stylesheet
+    if (!ok) {
+      try {
+        const css = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
+        const html = '<html><head><meta charset="utf-8"><style>' + css
+          + '\n.pdf-val{border-bottom:none;}'
+          + '\n.footer,.footer-btns,.add-row-btn{display:none;}'
+          + '</style></head><body>' + clone.outerHTML + '</body></html>';
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html':  new Blob([html], {type:'text/html'}),
+          'text/plain': new Blob([clone.innerText || ''], {type:'text/plain'})
+        })]);
+        ok = true;
+      } catch(e) { ok = false; }
+    }
+
+    // 3) Plain text only
+    if (!ok) {
+      try { await navigator.clipboard.writeText(clone.innerText || ''); ok = true; } catch(e) { ok = false; }
+    }
+
+    holder.remove();
+
+    if (btn) {
+      btn.textContent = ok ? '✅ คัดลอกแล้ว — เปิด Word แล้วกด Ctrl+V' : '❌ คัดลอกไม่สำเร็จ';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = orig; }, 4500);
+    }
+  }
+
+  // Standalone build: the save buttons always work here
+  ['btn-save-word','btn-save-excel'].forEach(function(id){
+    const b = document.getElementById(id);
+    if (b) b.style.display = '';
+  });
+
+</script>
+
+</body>
+</html>
