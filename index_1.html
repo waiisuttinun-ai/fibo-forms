@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>แบบฟอร์มจัดซื้อครุภัณฑ์ FIBO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700;800&display=swap">
+<style>
+:root{
+  --navy:#1B2F6E; --navy-mid:#2C4494; --amber:#F0A500; --amber-lt:#FEF4CC;
+  --teal:#2E7D5E; --page:#EEF1F7; --card:#FFFFFF;
+  --border:#C4CDE0; --text:#1A2340; --muted:#56657A;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --navy:#3D5BBF; --navy-mid:#4A6CD0; --amber:#F5B800; --amber-lt:#3A2E00;
+    --teal:#4DAA85; --page:#0E1524; --card:#151E30;
+    --border:#2C3D5C; --text:#E4E9F2; --muted:#93A2BA;
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#3D5BBF; --navy-mid:#4A6CD0; --amber:#F5B800; --amber-lt:#3A2E00;
+  --teal:#4DAA85; --page:#0E1524; --card:#151E30;
+  --border:#2C3D5C; --text:#E4E9F2; --muted:#93A2BA;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Sarabun',-apple-system,'Segoe UI',sans-serif;
+  background:var(--page); color:var(--text);
+  min-height:100vh; padding:40px 20px;
+  display:flex; align-items:center; justify-content:center;
+}
+.wrap{width:100%; max-width:820px;}
+.masthead{
+  background:var(--navy); border-radius:4px 4px 0 0;
+  padding:34px 38px 30px; position:relative; overflow:hidden;
+}
+.masthead::before{
+  content:''; position:absolute; inset:0 0 auto 0; height:4px;
+  background:linear-gradient(90deg,var(--amber) 0 42%,var(--teal) 42% 100%);
+}
+.kicker{
+  font-size:11.5px; font-weight:700; letter-spacing:.14em;
+  color:var(--amber); text-transform:uppercase; margin-bottom:10px;
+}
+h1{font-size:27px; font-weight:800; color:#fff; line-height:1.35; text-wrap:balance;}
+.sub{font-size:13.5px; color:rgba(255,255,255,.62); margin-top:9px; line-height:1.7;}
+.cards{
+  background:var(--card); border:1px solid var(--border); border-top:none;
+  border-radius:0 0 4px 4px; padding:14px;
+  display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+}
+.card{
+  display:block; text-decoration:none; color:inherit;
+  border:1px solid var(--border); border-radius:3px;
+  padding:22px 22px 20px; background:var(--card);
+  transition:border-color .15s, transform .15s, box-shadow .15s;
+  position:relative;
+}
+.card::before{
+  content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+  background:var(--accent); border-radius:3px 0 0 3px;
+}
+.card:hover{
+  border-color:var(--navy-mid); transform:translateY(-2px);
+  box-shadow:0 6px 18px rgba(27,47,110,.13);
+}
+.card:focus-visible{outline:2px solid var(--amber); outline-offset:2px;}
+.c-budget{--accent:var(--navy-mid);}
+.c-reason{--accent:var(--teal);}
+.c-num{
+  font-size:11px; font-weight:700; letter-spacing:.1em;
+  color:var(--accent); margin-bottom:8px;
+}
+.c-title{font-size:17px; font-weight:700; color:var(--navy); line-height:1.45; margin-bottom:7px;}
+.c-desc{font-size:13px; color:var(--muted); line-height:1.75;}
+.c-go{
+  margin-top:15px; font-size:12.5px; font-weight:700; color:var(--accent);
+  display:flex; align-items:center; gap:6px;
+}
+.foot{
+  margin-top:16px; font-size:12px; color:var(--muted);
+  line-height:1.85; text-align:center;
+}
+.foot strong{color:var(--text); font-weight:600;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="kicker">สถาบันวิทยาการหุ่นยนต์ภาคสนาม · มจธ.</div>
+    <h1>แบบฟอร์มจัดซื้อครุภัณฑ์</h1>
+    <p class="sub">ปีงบประมาณ 2571 · กรอกออนไลน์ แล้วบันทึกเป็น Word, Excel หรือ PDF ได้ทันที</p>
+  </header>
+
+  <nav class="cards">
+    <a class="card c-budget" href="budget.html">
+      <div class="c-num">เอกสารที่ 1</div>
+      <div class="c-title">ข้อกำหนดรายละเอียด<br>คุณลักษณะเฉพาะ</div>
+      <p class="c-desc">ความเป็นมา วัตถุประสงค์ คุณสมบัติผู้ยื่นข้อเสนอ คุณสมบัติทางเทคนิค เอกสารที่ต้องยื่น และการรับประกัน</p>
+      <div class="c-go">เปิดแบบฟอร์ม →</div>
+    </a>
+
+    <a class="card c-reason" href="reason.html">
+      <div class="c-num">เอกสารที่ 2</div>
+      <div class="c-title">เหตุผลและความจำเป็น<br>ในการจัดซื้อ</div>
+      <p class="c-desc">ที่มาของงบประมาณ ตารางเปรียบเทียบยี่ห้อ สรุปข้อแตกต่าง ผลกระทบหากไม่จัดซื้อ และข้ออ้างอิงตามกฎหมาย</p>
+      <div class="c-go">เปิดแบบฟอร์ม →</div>
+    </a>
+  </nav>
+
+  <p class="foot">
+    ข้อมูลที่กรอกอยู่ในเครื่องของผู้กรอกเท่านั้น ไม่ถูกส่งไปที่ใด<br>
+    <strong>ปิดหน้าเว็บแล้วข้อมูลจะหาย</strong> — กรอกเสร็จให้กดบันทึกเป็นไฟล์ทุกครั้ง
+  </p>
+
+</div>
+</body>
+</html>

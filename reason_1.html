@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>เหตุผลในการจัดซื้อ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap">
+</head>
+<body>
+
+<style>
+/* ─── Tokens ─── */
+:root {
+  --navy:       #1B2F6E;
+  --navy-mid:   #2C4494;
+  --navy-light: #3D5BBF;
+  --amber:      #F0A500;
+  --amber-lt:   #FEF4CC;
+  --teal:       #2E7D5E;
+  --teal-lt:    #E6F4EE;
+  --coral:      #C0392B;
+  --coral-lt:   #FDECEA;
+  --page-bg:    #E8ECF4;
+  --surface:    #FFFFFF;
+  --stripe:     #F2F5FB;
+  --border:     #C4CDE0;
+  --text:       #1A2340;
+  --muted:      #56657A;
+  --placeholder:#96A4BC;
+  --field-bg:   #FFFFFF;
+  --field-focus:#EDF0FA;
+  --shadow:     0 2px 14px rgba(27,47,110,.10);
+  --sig-line:   #B4C0D8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --navy:       #3D5BBF;
+    --navy-mid:   #4A6CD0;
+    --navy-light: #6080E0;
+    --amber:      #F5B800;
+    --amber-lt:   #3A2E00;
+    --teal:       #4DAA85;
+    --teal-lt:    #0C2A1E;
+    --coral:      #E05A4A;
+    --coral-lt:   #3A0C08;
+    --page-bg:    #0E1625;
+    --surface:    #182236;
+    --stripe:     #1C2A42;
+    --border:     #2C3D5C;
+    --text:       #E0E8F8;
+    --muted:      #8090B0;
+    --placeholder:#4A5E7A;
+    --field-bg:   #1C2A42;
+    --field-focus:#1E3055;
+    --shadow:     0 2px 16px rgba(0,0,0,.4);
+    --sig-line:   #304060;
+  }
+}
+:root[data-theme="dark"] {
+  --navy:       #3D5BBF;
+  --navy-mid:   #4A6CD0;
+  --navy-light: #6080E0;
+  --amber:      #F5B800;
+  --amber-lt:   #3A2E00;
+  --teal:       #4DAA85;
+  --teal-lt:    #0C2A1E;
+  --coral:      #E05A4A;
+  --coral-lt:   #3A0C08;
+  --page-bg:    #0E1625;
+  --surface:    #182236;
+  --stripe:     #1C2A42;
+  --border:     #2C3D5C;
+  --text:       #E0E8F8;
+  --muted:      #8090B0;
+  --placeholder:#4A5E7A;
+  --field-bg:   #1C2A42;
+  --field-focus:#1E3055;
+  --shadow:     0 2px 16px rgba(0,0,0,.4);
+  --sig-line:   #304060;
+}
+
+/* ─── Reset ─── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:'Sarabun',system-ui,sans-serif;
+  font-size:14.5px;line-height:1.7;
+  color:var(--text);background:var(--page-bg);
+  padding:28px 14px 72px;
+}
+
+/* ─── Shell ─── */
+.doc{max-width:820px;margin:0 auto;background:var(--surface);box-shadow:var(--shadow);}
+
+/* ─── Top stripe ─── */
+.top-stripe{height:4px;background:linear-gradient(90deg,var(--navy) 55%,var(--amber) 100%);}
+
+/* ─── Banner ─── */
+.banner{background:var(--navy);padding:24px 36px 20px;position:relative;overflow:hidden;}
+.banner::after{
+  content:'';position:absolute;right:-60px;top:-40px;
+  width:240px;height:240px;border-radius:50%;
+  background:rgba(255,255,255,.04);pointer-events:none;
+}
+.banner-kicker{
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:6px;
+}
+.banner-title{font-size:17px;font-weight:800;color:#fff;line-height:1.4;text-wrap:balance;}
+.banner-sub{font-size:13px;color:rgba(255,255,255,.6);margin-top:5px;}
+
+/* ─── Doc header fields ─── */
+.doc-meta{
+  padding:16px 36px;border-bottom:1.5px solid var(--border);
+  display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;
+  background:var(--stripe);
+}
+.mf label{
+  display:block;font-size:11px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:3px;
+}
+.mf input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13.5px;
+  color:var(--text);background:var(--field-bg);
+  border:1px solid var(--border);border-radius:2px;
+  padding:6px 9px;outline:none;transition:border-color .15s;
+}
+.mf input:focus{border-color:var(--navy-mid);background:var(--field-focus);}
+.mf input::placeholder{color:var(--placeholder);}
+
+/* ─── Section ─── */
+.sec{margin:0;}
+.sec-hd{
+  background:var(--navy);padding:9px 36px;
+  display:flex;align-items:center;gap:10px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.sec-num{
+  font-size:11px;font-weight:800;letter-spacing:.08em;
+  color:rgba(255,255,255,.55);flex-shrink:0;
+}
+.sec-title{font-size:14px;font-weight:700;color:#fff;}
+.sec-body{padding:18px 36px;}
+
+/* ─── Field helpers ─── */
+textarea.fld, input.fld {
+  width:100%;font-family:'Sarabun',sans-serif;font-size:14px;
+  color:var(--text);background:var(--field-bg);
+  border:1px solid var(--border);border-radius:2px;
+  padding:8px 10px;outline:none;
+  transition:border-color .15s,background .15s;
+}
+textarea.fld{resize:vertical;min-height:80px;}
+textarea.fld:focus,input.fld:focus{
+  border-color:var(--navy-mid);background:var(--field-focus);
+}
+textarea.fld::placeholder,input.fld::placeholder{color:var(--placeholder);}
+
+.flabel{
+  display:block;font-size:12px;font-weight:700;
+  color:var(--muted);letter-spacing:.04em;margin-bottom:4px;
+}
+.fgroup{margin-bottom:14px;}
+.fgroup:last-child{margin-bottom:0;}
+
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+
+/* ─── Radio / Check row ─── */
+.radio-row,.check-row{display:flex;gap:18px;flex-wrap:wrap;padding:6px 0;}
+.radio-row label,.check-row label{
+  display:flex;align-items:center;gap:7px;
+  font-size:14px;color:var(--text);cursor:pointer;font-weight:500;
+}
+.radio-row input,.check-row input{
+  accent-color:var(--navy-mid);width:16px;height:16px;flex-shrink:0;
+}
+
+/* ─── Sub-items ─── */
+.sub-item{
+  display:grid;grid-template-columns:36px 1fr;gap:8px;
+  align-items:start;padding:10px 0;
+  border-bottom:1px solid var(--border);
+}
+.sub-item:last-child{border-bottom:none;}
+.sub-idx{
+  font-size:12px;font-weight:700;color:var(--navy-mid);
+  padding-top:8px;text-align:right;
+}
+.sub-body{}
+
+.check-item-row{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:9px 12px;border-radius:2px;
+  background:var(--stripe);border:1px solid var(--border);
+  margin-bottom:8px;
+}
+.check-item-row:last-child{margin-bottom:0;}
+.check-item-row input[type="checkbox"]{
+  margin-top:2px;flex-shrink:0;width:16px;height:16px;
+  accent-color:var(--teal);
+}
+.check-item-row .ci-text{font-size:13.5px;color:var(--text);flex:1;line-height:1.6;}
+.check-item-row .ci-text strong{color:var(--teal);}
+
+/* ─── Technical spec table ─── */
+.spec-wrap{overflow-x:auto;margin-bottom:10px;}
+table.spec-tbl{
+  width:100%;border-collapse:collapse;
+  font-size:13px;font-variant-numeric:tabular-nums;
+}
+table.spec-tbl thead th{
+  background:var(--teal);color:#fff;
+  font-weight:700;font-size:12px;letter-spacing:.03em;
+  padding:8px 10px;text-align:left;border:1px solid rgba(0,0,0,.1);
+  white-space:nowrap;
+}
+table.spec-tbl thead th:first-child{width:44px;text-align:center;}
+table.spec-tbl tbody td{
+  border:1px solid var(--border);
+  vertical-align:top;padding:0;
+}
+table.spec-tbl tbody tr:nth-child(even) td{background:var(--stripe);}
+.td-no{
+  text-align:center;font-weight:700;font-size:13px;
+  color:var(--teal);padding:8px 6px;
+}
+.req-ta{
+  width:100%;min-height:54px;resize:vertical;
+  font-family:'Sarabun',sans-serif;font-size:13px;color:var(--text);
+  background:var(--field-bg);border:1px solid var(--border);border-radius:4px;
+  padding:5px 7px;outline:none;line-height:1.55;
+}
+.req-ta:focus{background:var(--field-focus);border-color:var(--navy-light);}
+.td-req{
+  padding:8px 10px;font-size:13px;line-height:1.6;
+  color:var(--text);min-width:200px;
+}
+.td-req strong{color:var(--navy-mid);}
+.td-inp{padding:4px;}
+.td-inp input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13px;
+  color:var(--text);background:transparent;
+  border:none;border-bottom:1px dashed var(--border);
+  padding:6px 8px;outline:none;min-width:140px;
+  transition:background .12s,border-color .12s;
+}
+.td-inp input:focus{
+  background:var(--field-focus);border-bottom-color:var(--navy-mid);
+}
+.td-inp input::placeholder{color:var(--placeholder);}
+
+/* ─── Comparison table (5.1.2) ─── */
+table.cmp-tbl{
+  width:100%;border-collapse:collapse;font-size:13px;
+}
+table.cmp-tbl thead th{
+  background:var(--navy-mid);color:#fff;
+  font-weight:700;font-size:12px;letter-spacing:.03em;
+  padding:8px 10px;border:1px solid rgba(0,0,0,.12);
+  text-align:center;
+}
+table.cmp-tbl tbody td{
+  border:1px solid var(--border);padding:4px;
+  vertical-align:top;
+}
+table.cmp-tbl tbody tr:nth-child(even) td{background:var(--stripe);}
+table.cmp-tbl input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13px;
+  color:var(--text);background:transparent;border:none;
+  padding:6px 8px;outline:none;
+  transition:background .12s;
+}
+table.cmp-tbl input:focus{background:var(--field-focus);}
+table.cmp-tbl input::placeholder{color:var(--placeholder);}
+.add-row-btn{
+  font-family:'Sarabun',sans-serif;font-size:12.5px;font-weight:600;
+  background:var(--stripe);color:var(--navy-mid);
+  border:1.5px dashed var(--border);border-radius:2px;
+  padding:7px 18px;cursor:pointer;margin-top:8px;
+  transition:background .12s,border-color .12s;
+}
+.add-row-btn:hover{background:var(--field-focus);border-color:var(--navy-mid);}
+
+/* ─── Note callout ─── */
+.callout{
+  padding:10px 14px;border-left:3px solid var(--amber);
+  background:var(--amber-lt);border-radius:0 2px 2px 0;
+  font-size:13px;color:var(--text);line-height:1.6;
+  margin-top:12px;
+}
+.callout.teal-call{border-left-color:var(--teal);background:var(--teal-lt);}
+.callout.coral-call{border-left-color:var(--coral);background:var(--coral-lt);}
+
+/* ─── Signature block ─── */
+.sig-section{
+  padding:22px 36px 30px;
+  border-top:2px solid var(--border);
+  background:var(--stripe);
+}
+.sig-section-title{
+  font-size:13px;font-weight:800;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--navy);
+  margin-bottom:18px;
+  padding-bottom:8px;border-bottom:2px solid var(--amber);
+  display:inline-block;
+}
+.sig-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;}
+.sig-col{}
+.sig-col-role{
+  font-size:11px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--amber);
+  margin-bottom:10px;
+}
+.sig-col-name{
+  font-size:13.5px;font-weight:700;color:var(--navy-mid);
+  margin-bottom:10px;
+}
+.sig-fld{margin-bottom:8px;}
+.sig-fld label{
+  display:block;font-size:11px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:3px;
+}
+.sig-fld input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:13.5px;
+  color:var(--text);background:var(--field-bg);
+  border:none;border-bottom:1.5px solid var(--border);
+  padding:4px 4px;outline:none;transition:border-color .15s;
+}
+.sig-fld input:focus{border-bottom-color:var(--navy-mid);}
+.sig-fld input::placeholder{color:var(--placeholder);}
+.sig-line{border-bottom:1.5px solid var(--sig-line);margin-top:44px;margin-bottom:4px;}
+.sig-line-lbl{font-size:12px;color:var(--muted);text-align:center;}
+
+/* ─── Footer ─── */
+.footer{
+  background:var(--navy);padding:11px 36px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:8px;
+}
+.footer p{font-size:12px;color:rgba(255,255,255,.45);}
+.footer-btns{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy{
+  font-family:'Sarabun',sans-serif;font-size:13px;font-weight:700;
+  border:none;border-radius:2px;padding:7px 20px;
+  cursor:pointer;transition:opacity .15s;
+}
+.btn-print{background:var(--amber);color:#1A0F00;}
+.btn-pdf{background:#fff;color:var(--navy);}
+.btn-word{background:#2B579A;color:#fff;}
+.btn-excel{background:#1D6F42;color:#fff;}
+.btn-copy{background:#fff;color:var(--navy);border:1.5px solid rgba(255,255,255,.35);}
+.btn-print:hover,.btn-pdf:hover,.btn-word:hover,.btn-excel:hover,.btn-copy:hover{opacity:.85;}
+
+/* ─── Print ─── */
+@media print{
+  body{background:#fff;padding:0;}
+  .doc{box-shadow:none;max-width:100%;}
+  .banner,.sec-hd,.footer,.top-stripe,.doc-meta{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  table.spec-tbl thead th,table.cmp-tbl thead th,
+  .check-item-row,.callout,.sig-section{
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  }
+  .btn-print,.add-row-btn{display:none;}
+}
+@media(max-width:600px){
+  .banner,.sec-body,.sig-section,.footer{padding-left:16px;padding-right:16px;}
+  .doc-meta{grid-template-columns:1fr;padding:12px 16px;}
+  .row2,.row3{grid-template-columns:1fr;}
+  .sig-grid{grid-template-columns:1fr;}
+}
+</style>
+<style>
+/* ─── Reason-document specifics ─── */
+.para{margin-bottom:14px;}
+.para-txt{
+  font-size:14px;line-height:2.05;color:var(--text);
+  text-indent:2.5em;
+}
+.para-txt.no-indent{text-indent:0;}
+.doc-title{
+  text-align:center;font-size:17px;font-weight:800;color:var(--navy);
+  line-height:1.85;padding:26px 36px 6px;
+}
+.doc-title-sub{
+  text-align:center;font-size:14px;font-weight:600;color:var(--navy-mid);
+  padding:0 36px 20px;line-height:1.9;
+}
+/* inline blank that echoes the master item name */
+.echo{
+  display:inline;font-weight:700;color:var(--navy);
+  border-bottom:1px dotted var(--border);padding:0 2px;
+  white-space:normal;overflow-wrap:break-word;
+}
+.echo:empty::before,.echo.blank::before{
+  content:"………………………………………………";
+  color:var(--muted);font-weight:400;letter-spacing:.5px;
+}
+.inline-fld{
+  font-family:'Sarabun',sans-serif;font-size:14px;font-weight:600;color:var(--navy);
+  background:var(--amber-soft);border:none;border-bottom:1.5px solid var(--border);
+  padding:1px 6px;outline:none;border-radius:3px 3px 0 0;min-width:90px;
+}
+.inline-fld:focus{border-bottom-color:var(--amber);background:#FFF6E3;}
+/* numbered repeatable list */
+.nlist{display:flex;flex-direction:column;gap:10px;}
+.nitem{display:flex;gap:11px;align-items:flex-start;}
+.nitem-idx{
+  flex:0 0 27px;height:27px;border-radius:50%;background:var(--navy);color:#fff;
+  font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;
+  margin-top:3px;
+}
+.nitem-body{flex:1;}
+.nitem .fld{width:100%;}
+.nitem-del{
+  flex:0 0 auto;background:none;border:none;color:var(--muted);cursor:pointer;
+  font-size:16px;line-height:1;padding:5px 4px;margin-top:3px;border-radius:3px;
+}
+.nitem-del:hover{color:#B4232B;background:rgba(180,35,43,.08);}
+/* comparison matrix */
+.mtx-wrap{overflow-x:auto;margin:4px 0 10px;}
+table.mtx{width:100%;border-collapse:collapse;font-size:12.5px;min-width:720px;}
+table.mtx th,table.mtx td{border:1px solid var(--border);padding:0;vertical-align:top;}
+table.mtx thead th{
+  background:var(--navy);color:#fff;font-weight:700;font-size:12px;
+  padding:9px 8px;text-align:center;vertical-align:middle;
+}
+table.mtx thead th.mtx-brand{background:var(--navy-mid);}
+table.mtx thead th input{
+  width:100%;font-family:'Sarabun',sans-serif;font-size:12px;font-weight:700;
+  color:#fff;background:rgba(255,255,255,.14);border:none;
+  border-bottom:1px solid rgba(255,255,255,.4);padding:3px 5px;outline:none;
+  text-align:center;border-radius:3px 3px 0 0;margin-top:3px;
+}
+table.mtx thead th input::placeholder{color:rgba(255,255,255,.55);font-weight:400;}
+table.mtx td textarea{
+  width:100%;min-height:52px;font-family:'Sarabun',sans-serif;font-size:12.5px;
+  line-height:1.65;color:var(--text);background:transparent;border:none;
+  padding:7px 8px;outline:none;resize:vertical;box-sizing:border-box;
+}
+table.mtx td textarea:focus{background:var(--amber-soft);}
+table.mtx td.mtx-spec{background:var(--navy-wash);width:30%;}
+table.mtx td.mtx-spec textarea{font-weight:600;color:var(--navy);}
+.mtx-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px;}
+.row-x{
+  background:none;border:none;color:var(--muted);cursor:pointer;font-size:15px;
+  padding:4px 6px;border-radius:3px;
+}
+.row-x:hover{color:#B4232B;background:rgba(180,35,43,.08);}
+td.mtx-x{width:30px;text-align:center;vertical-align:middle;background:transparent;border-left:none;}
+th.mtx-x{background:var(--navy);border-left:none;width:30px;}
+@media print{
+  .nitem-del,.row-x,td.mtx-x,th.mtx-x,.mtx-tools{display:none !important;}
+  .echo{border-bottom:none;}
+  table.mtx{min-width:0;font-size:11px;}
+}
+
+/* ─── Draft autosave UI ─── */
+.draft-status{
+  font-size:11.5px; font-weight:600; color:rgba(255,255,255,.72);
+  display:inline-flex; align-items:center; gap:6px;
+  padding:5px 11px; border-radius:999px;
+  background:rgba(255,255,255,.11); white-space:nowrap;
+}
+.draft-status .dot{
+  width:7px; height:7px; border-radius:50%; background:#5FD08A; flex:0 0 auto;
+}
+.draft-status[data-state="saving"] .dot{background:var(--amber);}
+.draft-status[data-state="off"]    .dot{background:#B4232B;}
+.btn-clear{
+  font-family:'Sarabun',sans-serif; font-size:12.5px; font-weight:700;
+  background:transparent; color:rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.28); border-radius:2px;
+  padding:6px 14px; cursor:pointer; transition:opacity .15s, border-color .15s;
+}
+.btn-clear:hover{opacity:.8; border-color:rgba(255,255,255,.5);}
+.draft-restored{
+  background:var(--amber-lt); border-left:3px solid var(--amber);
+  padding:11px 16px; margin:0; font-size:13px; color:var(--text);
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap; line-height:1.7;
+}
+.draft-restored button{
+  font-family:'Sarabun',sans-serif; font-size:12px; font-weight:700;
+  background:var(--navy); color:#fff; border:none; border-radius:2px;
+  padding:5px 14px; cursor:pointer;
+}
+.draft-restored button:hover{opacity:.85;}
+@media print{ .draft-status,.btn-clear,.draft-restored{display:none !important;} }
+</style>
+
+<div class="doc">
+<div class="top-stripe"></div>
+
+<!-- BANNER -->
+<div class="banner">
+  <div class="banner-kicker">สถาบันวิทยาการหุ่นยนต์ภาคสนาม · มจธ.</div>
+  <div class="banner-title">เหตุผลและความจำเป็นในการจัดซื้อ<br>
+    <input id="item-name" type="text" value="" placeholder="ชื่อครุภัณฑ์ / รายการที่จัดซื้อ"
+      style="width:100%;max-width:600px;font-family:'Sarabun',sans-serif;font-size:inherit;font-weight:800;
+             color:#fff;background:rgba(255,255,255,.15);border:none;border-bottom:2px solid rgba(255,255,255,.5);
+             border-radius:4px 4px 0 0;padding:4px 8px;outline:none;text-align:left;margin-top:4px;">
+  </div>
+  <div class="banner-sub">พิมพ์ชื่อครุภัณฑ์ช่องเดียว ระบบจะเติมให้ทุกจุดในเอกสารโดยอัตโนมัติ</div>
+</div>
+
+<!-- DOC META -->
+<div class="doc-meta">
+  <div class="mf">
+    <label>ชื่อหน่วยงาน</label>
+    <input type="text" id="f-org" placeholder="ชื่อหน่วยงาน / สถาบัน">
+  </div>
+  <div class="mf">
+    <label>สถานที่ / ที่ตั้ง</label>
+    <input type="text" id="m-place" placeholder="เช่น แขวงบางมด เขตทุ่งครุ กรุงเทพมหานคร">
+  </div>
+  <div class="mf">
+    <label>จำนวน</label>
+    <input type="text" id="m-qty" placeholder="1" style="width:70px;">
+  </div>
+  <div class="mf">
+    <label>หน่วยนับ</label>
+    <input type="text" id="m-unit" placeholder="เช่น ชุด / เครื่อง">
+  </div>
+  <div class="mf">
+    <label>ปีงบประมาณ</label>
+    <input type="text" id="m-year" placeholder="พ.ศ. 25XX">
+  </div>
+  <div class="mf">
+    <label>วงเงิน (บาท)</label>
+    <input type="text" id="m-amount" placeholder="0.00">
+  </div>
+  <div class="mf">
+    <label>วงเงิน (ตัวอักษร)</label>
+    <input type="text" id="f-amount-text" placeholder="จำนวนเงินเป็นตัวอักษร">
+  </div>
+  <div class="mf">
+    <label>วันที่จัดทำ</label>
+    <input type="text" id="doc-date" placeholder="วว/ดด/ปปปป">
+  </div>
+</div>
+
+<!-- ═══ 1. ที่มาของงบประมาณ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">1</span>
+    <span class="sec-title">ที่มาของงบประมาณและความจำเป็น</span>
+  </div>
+  <div class="sec-body">
+    <div class="fgroup">
+      <textarea class="fld" id="f-origin" style="min-height:200px;"></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 2. บริบทและความสำคัญ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">2</span>
+    <span class="sec-title">บริบทและความสำคัญของเทคโนโลยี</span>
+  </div>
+  <div class="sec-body">
+    <div class="fgroup">
+      <label class="flabel">สภาพการณ์ปัจจุบันและบทบาทของเทคโนโลยีนี้</label>
+      <textarea class="fld" style="min-height:120px;" placeholder="อธิบายว่าเทคโนโลยีนี้มีบทบาทอย่างไรในปัจจุบัน ใช้งานด้านใดได้บ้าง และมีแนวโน้มพัฒนาต่อไปอย่างไร"></textarea>
+    </div>
+    <div class="fgroup">
+      <label class="flabel">ความสำคัญต่อการเรียนการสอนและงานวิจัย</label>
+      <textarea class="fld" style="min-height:110px;" placeholder="อธิบายว่าครุภัณฑ์นี้ช่วยการเรียนภาคปฏิบัติ การบูรณาการความรู้ หรือการพัฒนาทักษะของนักศึกษาอย่างไร"></textarea>
+    </div>
+    <div class="para" style="margin-top:14px;">
+      <p class="para-txt">ดังนั้น หน่วยงานจึงได้ทำการสำรวจคุณสมบัติของ
+        <span class="echo blank" data-echo="item"></span>
+        ที่มีจำหน่ายในท้องตลาด พบว่าผลิตภัณฑ์แต่ละยี่ห้อมีความแตกต่างกัน ดังตารางเปรียบเทียบต่อไปนี้
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 3. ตารางเปรียบเทียบ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">3</span>
+    <span class="sec-title">ตารางเปรียบเทียบคุณลักษณะ</span>
+  </div>
+  <div class="sec-body">
+    <div class="callout" style="margin-bottom:12px;">
+      ตารางเปรียบเทียบคุณลักษณะของ <span class="echo blank" data-echo="itemfull"></span>
+    </div>
+
+    <div class="mtx-tools">
+      <button class="add-row-btn" onclick="addMtxRow()">＋ เพิ่มแถวคุณลักษณะ</button>
+      <button class="add-row-btn" onclick="addMtxBrand()">＋ เพิ่มยี่ห้อ</button>
+    </div>
+
+    <div class="mtx-wrap">
+      <table class="mtx" id="mtx">
+        <thead>
+          <tr id="mtx-head">
+            <th style="width:30%;">รายละเอียดคุณลักษณะเฉพาะของพัสดุ</th>
+            <th class="mtx-brand">ยี่ห้อ / รุ่น ที่ 1<input type="text" placeholder="ระบุยี่ห้อ และรุ่น"></th>
+            <th class="mtx-brand">ยี่ห้อ / รุ่น ที่ 2<input type="text" placeholder="ระบุยี่ห้อ และรุ่น"></th>
+            <th class="mtx-brand">ยี่ห้อ / รุ่น ที่ 3<input type="text" placeholder="ระบุยี่ห้อ และรุ่น"></th>
+            <th class="mtx-x"></th>
+          </tr>
+        </thead>
+        <tbody id="mtx-body"></tbody>
+      </table>
+    </div>
+    <div class="callout" style="margin-top:6px;">
+      ช่องซ้ายสุดใส่คุณลักษณะที่กำหนด (เช่น <em>(4.3) น้ำหนักบรรทุกสูงสุดไม่น้อยกว่า 50 กิโลกรัม</em>) แล้วกรอกค่าที่แต่ละยี่ห้อทำได้ในช่องถัดไป
+    </div>
+  </div>
+</div>
+
+<!-- ═══ 4. สรุปข้อแตกต่าง ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">4</span>
+    <span class="sec-title">สรุปข้อแตกต่างของแต่ละยี่ห้อ</span>
+  </div>
+  <div class="sec-body">
+    <p class="para-txt no-indent" style="margin-bottom:14px;">จากข้อมูลตามตารางเปรียบเทียบดังกล่าว สามารถสรุปข้อแตกต่างของยี่ห้อและรุ่น ได้ดังต่อไปนี้</p>
+    <div class="nlist" id="diff-list"></div>
+    <button class="add-row-btn" style="margin-top:10px;" onclick="addNItem('diff-list','เปรียบเทียบคุณลักษณะข้อถัดไป และสรุปว่ายี่ห้อใดดีกว่าเพราะเหตุใด')">＋ เพิ่มข้อสรุป</button>
+  </div>
+</div>
+
+<!-- ═══ 5. ผลกระทบหากไม่จัดซื้อ ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">5</span>
+    <span class="sec-title">ผลกระทบหากไม่ดำเนินการจัดซื้อ</span>
+  </div>
+  <div class="sec-body">
+    <div class="para">
+      <p class="para-txt">จะเห็นได้ว่า
+        <span class="echo blank" data-echo="item"></span>
+        ยี่ห้อ <input class="inline-fld" id="f-brand" type="text" style="min-width:180px;" placeholder="ยี่ห้อที่เลือก">
+        รุ่น <input class="inline-fld" id="f-model" type="text" style="min-width:180px;" placeholder="รุ่นที่เลือก">
+        มีคุณสมบัติตรงตามที่หน่วยงานกำหนด ซึ่งหากไม่ดำเนินการจัดซื้อ จะส่งผลกระทบ ดังนี้
+      </p>
+    </div>
+    <div class="nlist" id="impact-list"></div>
+    <button class="add-row-btn" style="margin-top:10px;" onclick="addNItem('impact-list','ระบุผลกระทบ เช่น หัวข้อผลกระทบ: คำอธิบายผลที่ตามมา')">＋ เพิ่มผลกระทบ</button>
+  </div>
+</div>
+
+<!-- ═══ 6. สรุปและข้อกฎหมาย ═══ -->
+<div class="sec">
+  <div class="sec-hd">
+    <span class="sec-num">6</span>
+    <span class="sec-title">สรุปเหตุผลและข้ออ้างอิงตามกฎหมาย</span>
+  </div>
+  <div class="sec-body">
+    <div class="para">
+      <p class="para-txt">ดังนั้น
+        <span class="echo blank" data-echo="org"></span>
+        จึงเล็งเห็นประโยชน์สูงสุดที่จะได้รับ หากมีการจัดซื้อ
+        <span class="echo blank" data-echo="item"></span>
+        ยี่ห้อ <span class="echo blank" data-echo="brand"></span>
+        รุ่น <span class="echo blank" data-echo="model"></span>
+        ซึ่งมีคุณสมบัติตรงตามที่กำหนดทุกประการ
+      </p>
+    </div>
+
+    <div class="row2">
+      <div class="fgroup">
+        <label class="flabel">ตัวแทนจำหน่ายในประเทศไทย</label>
+        <input class="fld" type="text" id="f-dealer" placeholder="ชื่อบริษัทตัวแทนจำหน่าย">
+      </div>
+      <div class="fgroup">
+        <label class="flabel">สถานะตัวแทนจำหน่าย</label>
+        <div class="radio-row" style="flex-wrap:wrap;gap:12px;">
+          <label><input type="radio" name="dealer_status" value="sole" checked> เป็นตัวแทนจำหน่ายเพียงรายเดียวในประเทศไทย</label>
+          <label><input type="radio" name="dealer_status" value="multi"> มีตัวแทนจำหน่ายหลายราย</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="fgroup">
+      <label class="flabel">อ้างอิงตามกฎหมาย</label>
+      <textarea class="fld" style="min-height:80px;" id="f-law" placeholder="ระบุมาตราที่ใช้อ้างอิง เช่น พระราชบัญญัติการจัดซื้อจัดจ้างและการบริหารพัสดุภาครัฐ พ.ศ. 2560 มาตรา 56 ข้อ (2) (ค) ..."></textarea>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>สถาบันวิทยาการหุ่นยนต์ภาคสนาม (FIBO) · มจธ.</p>
+  <div class="footer-btns">
+    <button class="btn-print" onclick="exportPDF('print')">🖨 พิมพ์</button>
+    <button class="btn-pdf" onclick="exportPDF('pdf')">📄 Export PDF</button>
+    <button id="btn-copy-word" class="btn-copy" onclick="copyForWord()">📋 คัดลอกไปวางใน Word</button>
+    <button id="btn-save-word" class="btn-word" style="display:none;" onclick="saveAsWord()">💾 บันทึก Word</button>
+      <span id="draft-status" class="draft-status"></span>
+    <button class="btn-clear" type="button" onclick="clearDraft()">🗑 ล้างร่าง</button>
+  </div>
+</div>
+
+</div><!-- /doc -->
+
+<script>
+  /* ══════════ Auto date ══════════ */
+  (function(){
+    const d = new Date();
+    const v = String(d.getDate()).padStart(2,'0') + '/' + String(d.getMonth()+1).padStart(2,'0') + '/' + (d.getFullYear()+543);
+    ['doc-date','sig-date1','sig-date2','sig-date3'].forEach(id=>{
+      const el = document.getElementById(id);
+      if (el) el.value = v;
+    });
+  })();
+
+  /* ══════════ Echo: type the item name once, fill it everywhere ══════════ */
+  const ECHO_SOURCES = {
+    item:   () => val('item-name'),
+    place:  () => val('m-place'),
+    year:   () => val('m-year'),
+    amount: () => val('m-amount'),
+    org:    () => val('f-org'),
+    brand:  () => val('f-brand'),
+    model:  () => val('f-model'),
+    qtyunit:() => {
+      const q = val('m-qty'), u = val('m-unit');
+      return (q || u) ? (q + (q && u ? ' ' : '') + u) : '';
+    },
+    itemfull: () => {
+      const parts = [val('item-name'), val('m-place')].filter(Boolean);
+      const qu = ECHO_SOURCES.qtyunit();
+      if (qu) parts.push('จำนวน ' + qu);
+      return parts.join(' ');
+    },
+  };
+  function val(id){ const e = document.getElementById(id); return e ? e.value.trim() : ''; }
+
+  function syncEchoes(){
+    document.querySelectorAll('.echo').forEach(sp => {
+      const key = sp.dataset.echo;
+      const fn = ECHO_SOURCES[key];
+      const v = fn ? fn() : '';
+      sp.textContent = v;
+      sp.classList.toggle('blank', !v);
+    });
+  }
+  ['item-name','m-place','m-qty','m-unit','m-year','m-amount','f-org','f-brand','f-model']
+    .forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', syncEchoes);
+    });
+  syncEchoes();
+
+  /* ══════════ Comparison matrix ══════════ */
+  function brandCount(){ return document.querySelectorAll('#mtx-head .mtx-brand').length; }
+
+  function addMtxRow(spec){
+    const tb = document.getElementById('mtx-body');
+    const tr = document.createElement('tr');
+    let html = '<td class="mtx-spec"><textarea placeholder="คุณลักษณะที่กำหนด เช่น (4.3) น้ำหนักบรรทุกไม่น้อยกว่า 50 กก.">'
+             + (spec || '') + '</textarea></td>';
+    for (let i = 0; i < brandCount(); i++){
+      html += '<td><textarea placeholder="ค่าที่ยี่ห้อนี้ทำได้"></textarea></td>';
+    }
+    html += '<td class="mtx-x"><button class="row-x" title="ลบแถวนี้" onclick="this.closest(\'tr\').remove()">✕</button></td>';
+    tr.innerHTML = html;
+    tb.appendChild(tr);
+    return tr;
+  }
+
+  function addMtxBrand(){
+    const head = document.getElementById('mtx-head');
+    const n = brandCount() + 1;
+    const th = document.createElement('th');
+    th.className = 'mtx-brand';
+    th.innerHTML = 'ยี่ห้อ / รุ่น ที่ ' + n
+      + '<input type="text" placeholder="ระบุยี่ห้อ และรุ่น">'
+      + '<button class="row-x" style="color:rgba(255,255,255,.6);display:block;margin:4px auto 0;" title="ลบคอลัมน์นี้" onclick="delMtxBrand(this)">✕</button>';
+    head.insertBefore(th, head.querySelector('.mtx-x'));
+    document.querySelectorAll('#mtx-body tr').forEach(tr => {
+      const td = document.createElement('td');
+      td.innerHTML = '<textarea placeholder="ค่าที่ยี่ห้อนี้ทำได้"></textarea>';
+      tr.insertBefore(td, tr.querySelector('.mtx-x'));
+    });
+    renumberBrands();
+  }
+
+  function delMtxBrand(btn){
+    const th = btn.closest('th');
+    const idx = [...document.querySelectorAll('#mtx-head th')].indexOf(th);
+    if (brandCount() <= 1) return;
+    th.remove();
+    document.querySelectorAll('#mtx-body tr').forEach(tr => {
+      const cells = tr.querySelectorAll('td');
+      if (cells[idx]) cells[idx].remove();
+    });
+    renumberBrands();
+  }
+
+  function renumberBrands(){
+    document.querySelectorAll('#mtx-head .mtx-brand').forEach((th, i) => {
+      const inp = th.querySelector('input');
+      const btn = th.querySelector('button');
+      th.childNodes[0].nodeValue = 'ยี่ห้อ / รุ่น ที่ ' + (i + 1);
+      if (inp) th.appendChild(inp);
+      if (btn) th.appendChild(btn);
+    });
+  }
+
+  /* ══════════ Numbered repeatable lists ══════════ */
+  function addNItem(listId, placeholder){
+    const list = document.getElementById(listId);
+    const div = document.createElement('div');
+    div.className = 'nitem';
+    div.innerHTML = '<div class="nitem-idx"></div>'
+      + '<div class="nitem-body"><textarea class="fld" style="min-height:74px;" placeholder="' + placeholder + '"></textarea></div>'
+      + '<button class="nitem-del" title="ลบข้อนี้" onclick="const l=this.closest(\'.nlist\');this.closest(\'.nitem\').remove();renumberList(l);">✕</button>';
+    list.appendChild(div);
+    renumberList(list);
+    div.querySelector('textarea').focus();
+    return div;
+  }
+
+  function renumberList(list){
+    if (!list) return;
+    [...list.querySelectorAll('.nitem-idx')].forEach((el, i) => { el.textContent = i + 1; });
+  }
+
+  /* Seed: 4 comparison rows, 4 difference points, 4 impacts — all blank */
+  for (let i = 0; i < 4; i++) addMtxRow('');
+  for (let i = 0; i < 4; i++) addNItem('diff-list', 'เปรียบเทียบคุณลักษณะข้อนี้ และสรุปว่ายี่ห้อใดดีกว่าเพราะเหตุใด');
+  for (let i = 0; i < 4; i++) addNItem('impact-list', 'ระบุผลกระทบ เช่น หัวข้อผลกระทบ: คำอธิบายผลที่ตามมา');
+  document.activeElement && document.activeElement.blur();
+
+  /* ══════════ Shared helpers ══════════ */
+  function _esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function gv(el){ return el ? String(el.value || '').trim() : ''; }
+
+  /* Read the whole document into a plain object — one source of truth for every export */
+  function collect(){
+    const brands = [...document.querySelectorAll('#mtx-head .mtx-brand')]
+      .map((th, i) => gv(th.querySelector('input')) || ('ยี่ห้อที่ ' + (i + 1)));
+
+    const mtx = [...document.querySelectorAll('#mtx-body tr')].map(tr => {
+      const tas = [...tr.querySelectorAll('textarea')].map(gv);
+      return { spec: tas[0] || '', vals: tas.slice(1) };
+    }).filter(r => r.spec || r.vals.some(Boolean));
+
+    const listOf = id => [...document.querySelectorAll('#' + id + ' .nitem textarea')]
+      .map(gv).filter(Boolean);
+
+    const sec2 = [...document.querySelectorAll('.sec')][1];
+    const s2ta = sec2 ? [...sec2.querySelectorAll('textarea')].map(gv) : [];
+
+    const dealerEl = document.querySelector('input[name="dealer_status"]:checked');
+
+    return {
+      item: val('item-name'), place: val('m-place'), qty: val('m-qty'), unit: val('m-unit'),
+      year: val('m-year'), amount: val('m-amount'), amountText: val('f-amount-text'),
+      org: val('f-org'), origin: gv(document.getElementById('f-origin')),
+      brand: val('f-brand'), model: val('f-model'),
+      dealer: val('f-dealer'),
+      dealerSole: !dealerEl || dealerEl.value === 'sole',
+      law: gv(document.getElementById('f-law')),
+      date: val('doc-date'),
+      context: s2ta[0] || '', importance: s2ta[1] || '',
+      brands, mtx, diffs: listOf('diff-list'), impacts: listOf('impact-list'),
+      qtyunit: ECHO_SOURCES.qtyunit(),
+      itemfull: ECHO_SOURCES.itemfull(),
+    };
+  }
+
+  const BLANK = '……………………………………';
+  const or = v => v || BLANK;
+
+  /* Narrative paragraphs, rebuilt from the collected data */
+  function narrative(d){
+    return {
+      p2: 'ดังนั้น หน่วยงานจึงได้ทำการสำรวจคุณสมบัติของ ' + or(d.item)
+        + ' ที่มีจำหน่ายในท้องตลาด พบว่าผลิตภัณฑ์แต่ละยี่ห้อมีความแตกต่างกัน ดังตารางเปรียบเทียบต่อไปนี้',
+      p3: 'จากข้อมูลตามตารางเปรียบเทียบดังกล่าว สามารถสรุปข้อแตกต่างของยี่ห้อและรุ่น ได้ดังต่อไปนี้',
+      p4: 'จะเห็นได้ว่า ' + or(d.item) + ' ยี่ห้อ ' + or(d.brand) + ' รุ่น ' + or(d.model)
+        + ' มีคุณสมบัติตรงตามที่หน่วยงานกำหนด ซึ่งหากไม่ดำเนินการจัดซื้อ จะส่งผลกระทบ ดังนี้',
+      p5: 'ดังนั้น ' + or(d.org) + ' จึงเล็งเห็นประโยชน์สูงสุดที่จะได้รับ หากมีการจัดซื้อ '
+        + or(d.item) + ' ยี่ห้อ ' + or(d.brand) + ' รุ่น ' + or(d.model)
+        + ' ซึ่งมีคุณสมบัติตรงตามที่กำหนดทุกประการ'
+        + (d.dealer
+            ? ' และมีตัวแทนจำหน่าย' + (d.dealerSole ? 'ในประเทศไทยเพียงรายเดียว คือ ' : ' คือ ') + d.dealer
+            : '')
+        + (d.law ? ' ซึ่งเป็นไปตาม' + d.law : ''),
+    };
+  }
+
+  /* ══════════ Print / Export PDF ══════════ */
+  function bakeClone(){
+    const src = document.querySelector('.doc');
+    const clone = src.cloneNode(true);
+    const orig   = src.querySelectorAll('input, textarea, select');
+    const cloned = clone.querySelectorAll('input, textarea, select');
+    orig.forEach((el, i) => {
+      const cl = cloned[i];
+      if (!cl) return;
+      const v = el.type === 'checkbox' ? (el.checked ? '☑' : '☐')
+              : el.type === 'radio'    ? (el.checked ? '◉' : '○')
+              : (el.value.trim() || '–');
+      const span = document.createElement('span');
+      span.className = 'pdf-val';
+      span.textContent = v;
+      if (el.style.width) span.style.minWidth = el.style.width;
+      cl.replaceWith(span);
+    });
+    clone.querySelectorAll('.add-row-btn,.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy,.footer-btns,.footer,.nitem-del,.row-x,.mtx-x,.mtx-tools')
+         .forEach(b => b.remove());
+    return clone;
+  }
+
+  function buildPrintHTML(){
+    const clone = bakeClone();
+    const css = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
+    const name = val('item-name') || 'เหตุผลในการจัดซื้อ';
+    const closeTag = '<' + '/script>';
+    return '<!DOCTYPE html><html lang="th"><head><meta charset="utf-8">'
+      + '<meta name="viewport" content="width=device-width,initial-scale=1">'
+      + '<title>' + _esc(name) + '</title>'
+      + '<link rel="preconnect" href="https://fonts.googleapis.com">'
+      + '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+      + '<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">'
+      + '<style>' + css
+      + '\n@page{size:A4;margin:14mm 15mm;}'
+      + '\nbody{background:#fff!important;padding:0!important;margin:0!important;}'
+      + '\n.doc{box-shadow:none!important;max-width:100%!important;margin:0!important;}'
+      + '\n.pdf-val{border-bottom:none!important;white-space:pre-wrap;}'
+      + '\n.echo{border-bottom:none!important;}'
+      + '\n.add-row-btn,.btn-print,.btn-pdf,.btn-word,.btn-excel,.btn-copy,.footer-btns,.footer{display:none!important;}'
+      + '\n#__banner{font-family:Sarabun,sans-serif;background:#1B3054;color:#fff;padding:12px 18px;'
+      + 'font-size:13px;font-weight:700;text-align:center;line-height:1.6;}'
+      + '\n@media print{#__banner{display:none!important;}}'
+      + '</style></head><body>'
+      + '<div id="__banner">📄 หน้าต่างสั่งพิมพ์จะเปิดขึ้นเอง — ในช่อง <u>ปลายทาง / Destination</u> ให้เลือก '
+      + '<u>บันทึกเป็น PDF / Save as PDF</u> แล้วกดบันทึก<br>'
+      + '<span style="font-weight:400;opacity:.8">ถ้าไม่เด้งขึ้น กด Ctrl+P (Windows) หรือ ⌘+P (Mac) ได้เลย</span></div>'
+      + clone.outerHTML
+      + '<script>window.addEventListener("load",function(){setTimeout(function(){window.print();},800);});' + closeTag
+      + '</body></html>';
+  }
+
+  /* Save a generated file through the browser's own download.
+     Works on any ordinary web host. */
+  function saveFile(filename, data, mime){
+    const blob = (data instanceof Blob) ? data : new Blob([data], {type: mime || 'application/octet-stream'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function(){ URL.revokeObjectURL(url); a.remove(); }, 1500);
+  }
+
+  function exportPDF(mode){
+    if (mode === 'pdf') {
+      const name = (val('item-name') || 'เหตุผลในการจัดซื้อ').replace(/[/\\?%*:|"<>]/g,'_');
+      saveFile(name + '_เหตุผลจัดซื้อ_พร้อมพิมพ์.html', buildPrintHTML(), 'text/html;charset=utf-8');
+      const btn = document.querySelector('.btn-pdf');
+      if (btn) {
+        const orig = btn.textContent;
+        btn.textContent = '✅ ดาวน์โหลดแล้ว — เปิดไฟล์เพื่อพิมพ์';
+        setTimeout(function(){ btn.textContent = orig; }, 4000);
+      }
+      return;
+    }
+    printInFrame();
+  }
+
+  function printInFrame(){
+    const clone = bakeClone();
+    const existing = document.getElementById('__pdf_overlay');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = '__pdf_overlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#fff;overflow:auto;padding:20px;box-sizing:border-box;';
+    const bar = document.createElement('div');
+    bar.id = '__pdf_hint';
+    bar.style.cssText = 'position:sticky;top:0;z-index:5;background:#1B3054;color:#fff;font-family:Sarabun,sans-serif;'
+      + 'font-size:13px;font-weight:700;padding:10px 16px;border-radius:4px;margin-bottom:14px;text-align:center;line-height:1.7;';
+    bar.innerHTML = 'กด <u>Ctrl+P</u> (Windows) หรือ <u>⌘+P</u> (Mac) เพื่อเปิดหน้าต่างสั่งพิมพ์ แล้วเลือกปลายทางเป็น "บันทึกเป็น PDF"'
+      + '<button id="__pdf_close" style="margin-left:14px;font-family:Sarabun,sans-serif;font-size:12px;font-weight:700;'
+      + 'background:#F5A524;color:#1A0F00;border:none;border-radius:3px;padding:5px 14px;cursor:pointer;">ปิด</button>';
+    overlay.appendChild(bar);
+    overlay.appendChild(clone);
+    document.body.appendChild(overlay);
+    let ps = document.getElementById('__pdf_style');
+    if (!ps) { ps = document.createElement('style'); ps.id = '__pdf_style'; document.head.appendChild(ps); }
+    ps.textContent = '@media print{ body > *:not(#__pdf_overlay){display:none!important;}'
+      + ' #__pdf_overlay{position:static!important;padding:0!important;}'
+      + ' @page{size:A4;margin:14mm 15mm;} .pdf-val,.echo{border-bottom:none!important;}'
+      + ' #__pdf_hint{display:none!important;} }';
+    const cleanup = () => { overlay.remove(); ps.textContent = ''; window.removeEventListener('afterprint', cleanup); };
+    window.addEventListener('afterprint', cleanup);
+    const cb = document.getElementById('__pdf_close');
+    if (cb) cb.addEventListener('click', cleanup);
+    setTimeout(() => { try { window.print(); } catch(e) {} }, 200);
+  }
+
+  /* ══════════ Copy to Word ══════════ */
+  async function copyForWord(){
+    const btn = document.getElementById('btn-copy-word');
+    const orig = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = '⏳ กำลังคัดลอก...'; btn.disabled = true; }
+
+    const clone = bakeClone();
+    clone.querySelectorAll('.mf label, .flabel, .sig-fld label').forEach(lb => {
+      const t = (lb.textContent || '').trim();
+      if (!t || /[:：]$/.test(t)) return;
+      const sib = lb.nextElementSibling;
+      if (sib && sib.classList && sib.classList.contains('pdf-val')) lb.textContent = t + ' : ';
+    });
+
+    const holder = document.createElement('div');
+    holder.style.cssText = 'position:fixed;left:-100000px;top:0;width:900px;background:#fff;z-index:-1;';
+    holder.appendChild(clone);
+    document.body.appendChild(holder);
+
+    let ok = false;
+    try {
+      const sel = window.getSelection(), range = document.createRange();
+      range.selectNodeContents(holder);
+      sel.removeAllRanges(); sel.addRange(range);
+      ok = document.execCommand('copy');
+      sel.removeAllRanges();
+    } catch(e) { ok = false; }
+
+    if (!ok) {
+      try {
+        const css = [...document.querySelectorAll('style')].map(s => s.textContent).join('\n');
+        const html = '<html><head><meta charset="utf-8"><style>' + css
+          + '\n.pdf-val,.echo{border-bottom:none;}\n.footer,.footer-btns{display:none;}</style></head><body>'
+          + clone.outerHTML + '</body></html>';
+        await navigator.clipboard.write([new ClipboardItem({
+          'text/html':  new Blob([html], {type:'text/html'}),
+          'text/plain': new Blob([clone.innerText || ''], {type:'text/plain'})
+        })]);
+        ok = true;
+      } catch(e) { ok = false; }
+    }
+    if (!ok) {
+      try { await navigator.clipboard.writeText(clone.innerText || ''); ok = true; } catch(e) { ok = false; }
+    }
+
+    holder.remove();
+    if (btn) {
+      btn.textContent = ok ? '✅ คัดลอกแล้ว — เปิด Word แล้วกด Ctrl+V' : '❌ คัดลอกไม่สำเร็จ';
+      btn.disabled = false;
+      setTimeout(() => { btn.textContent = orig; }, 4500);
+    }
+  }
+
+  /* ══════════ ZIP builder (STORE) for .docx ══════════ */
+  const _crc32t = (()=>{ const t=new Uint32Array(256); for(let i=0;i<256;i++){let c=i;for(let j=0;j<8;j++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);t[i]=c;} return t; })();
+  function _crc32(b){ let c=0xFFFFFFFF; for(let i=0;i<b.length;i++)c=_crc32t[(c^b[i])&0xFF]^(c>>>8); return (c^0xFFFFFFFF)>>>0; }
+  function _cat(a){ const n=a.reduce((s,x)=>s+x.length,0), o=new Uint8Array(n); let p=0; for(const x of a){o.set(x,p);p+=x.length;} return o; }
+  function _buildZip(files){
+    const enc=new TextEncoder(), parts=[], cd=[]; let off=0;
+    for(const f of files){
+      const nb=enc.encode(f.name);
+      const db=f.data instanceof Uint8Array?f.data:enc.encode(f.data);
+      const crc=_crc32(db), sz=db.length;
+      const lh=new Uint8Array(30+nb.length), lv=new DataView(lh.buffer);
+      lv.setUint32(0,0x04034b50,true); lv.setUint16(4,20,true); lv.setUint16(6,0x800,true);
+      lv.setUint32(14,crc,true); lv.setUint32(18,sz,true); lv.setUint32(22,sz,true);
+      lv.setUint16(26,nb.length,true); lh.set(nb,30);
+      const ce=new Uint8Array(46+nb.length), cv=new DataView(ce.buffer);
+      cv.setUint32(0,0x02014b50,true); cv.setUint16(4,20,true); cv.setUint16(6,20,true);
+      cv.setUint16(8,0x800,true);
+      cv.setUint32(16,crc,true); cv.setUint32(20,sz,true); cv.setUint32(24,sz,true);
+      cv.setUint16(28,nb.length,true); cv.setUint32(42,off,true);
+      ce.set(nb,46);
+      parts.push(lh,db); cd.push(ce); off+=30+nb.length+sz;
+    }
+    const cdb=_cat(cd), eo=new Uint8Array(22), ev=new DataView(eo.buffer);
+    ev.setUint32(0,0x06054b50,true); ev.setUint16(8,files.length,true); ev.setUint16(10,files.length,true);
+    ev.setUint32(12,cdb.length,true); ev.setUint32(16,off,true);
+    return _cat([...parts,cdb,eo]);
+  }
+
+  /* ══════════ DOCX ══════════ */
+  function _para(text, o){
+    o = o || {};
+    const sz=o.sz||24, bold=o.bold?'<w:b/>':'', center=o.center?'<w:jc w:val="center"/>':'',
+          just=o.justify?'<w:jc w:val="thaiDistribute"/>':'',
+          spacing=o.spacing?'<w:spacing w:after="'+o.spacing+'"/>':'',
+          indent=(o.indent||o.firstLine)
+            ? '<w:ind'+(o.indent?' w:left="'+o.indent+'"':'')+(o.firstLine?' w:firstLine="'+o.firstLine+'"':'')+'/>'
+            : '';
+    const rpr='<w:rPr>'+bold+'<w:sz w:val="'+sz+'"/><w:szCs w:val="'+sz+'"/></w:rPr>';
+    const ppr='<w:pPr>'+center+just+spacing+indent+rpr+'</w:pPr>';
+    const lines=String(text==null?'':text).split('\n');
+    const runs=lines.map((l,i)=>'<w:r>'+rpr+'<w:t xml:space="preserve">'+_esc(l)+'</w:t>'+(i<lines.length-1?'<w:br/>':'')+'</w:r>').join('');
+    return '<w:p>'+ppr+runs+'</w:p>';
+  }
+
+  function _tbl(widths, rowsXml){
+    const grid=widths.map(w=>'<w:gridCol w:w="'+w+'"/>').join('');
+    const total=widths.reduce((a,b)=>a+b,0);
+    const bd=['top','left','bottom','right','insideH','insideV']
+      .map(s=>'<w:'+s+' w:val="single" w:sz="4" w:space="0" w:color="9DB4CE"/>').join('');
+    return '<w:tbl><w:tblPr><w:tblW w:w="'+total+'" w:type="dxa"/><w:tblLayout w:type="fixed"/>'
+      + '<w:tblBorders>'+bd+'</w:tblBorders></w:tblPr>'
+      + '<w:tblGrid>'+grid+'</w:tblGrid>'+rowsXml+'</w:tbl>';
+  }
+
+  function _row(cells, o){
+    o = o || {};
+    const bold=o.hdr?'<w:b/>':'';
+    const shade=o.hdr?'<w:shd w:val="clear" w:color="auto" w:fill="1B3054"/>':'';
+    const col=o.hdr?'<w:color w:val="FFFFFF"/>':'';
+    const tcs=cells.map(c=>{
+      const rpr='<w:rPr>'+bold+col+'<w:sz w:val="18"/><w:szCs w:val="18"/></w:rPr>';
+      const ppr='<w:pPr><w:jc w:val="'+(c.center?'center':'left')+'"/>'+rpr+'</w:pPr>';
+      const lines=String(c.t==null?'':c.t).split('\n');
+      const runs=lines.map((l,i)=>'<w:r>'+rpr+'<w:t xml:space="preserve">'+_esc(l)+'</w:t>'+(i<lines.length-1?'<w:br/>':'')+'</w:r>').join('');
+      return '<w:tc><w:tcPr>'+(c.w?'<w:tcW w:w="'+c.w+'" w:type="dxa"/>':'')+shade
+        + '<w:tcMar><w:top w:w="60" w:type="dxa"/><w:left w:w="80" w:type="dxa"/>'
+        + '<w:bottom w:w="60" w:type="dxa"/><w:right w:w="80" w:type="dxa"/></w:tcMar>'
+        + '<w:vAlign w:val="center"/></w:tcPr><w:p>'+ppr+runs+'</w:p></w:tc>';
+    }).join('');
+    return '<w:tr>'+tcs+'</w:tr>';
+  }
+
+  function buildDocxXml(){
+    const d = collect(), n = narrative(d);
+    let b = '';
+
+    // Title block
+    b += _para('เหตุผลและความจำเป็นในการจัดซื้อ' + or(d.item), {sz:32, bold:true, center:true, spacing:40});
+    if (d.place) b += _para(d.place, {sz:28, bold:true, center:true, spacing:40});
+    b += _para('จำนวน ' + or(d.qtyunit), {sz:28, bold:true, center:true, spacing:240});
+
+    // Section 1 — exactly what the author wrote
+    if (d.origin)     b += _para(d.origin,     {sz:24, justify:true, firstLine:720, spacing:140});
+    if (d.context)    b += _para(d.context,    {sz:24, justify:true, firstLine:720, spacing:140});
+    if (d.importance) b += _para(d.importance, {sz:24, justify:true, firstLine:720, spacing:140});
+    b += _para(n.p2, {sz:24, justify:true, firstLine:720, spacing:200});
+
+    // Comparison table
+    b += _para('ตารางเปรียบเทียบคุณลักษณะของ' + or(d.itemfull), {sz:26, bold:true, center:true, spacing:140});
+    const nb = d.brands.length;
+    const specW = 3200, brandW = Math.max(1200, Math.floor((9360 - specW) / Math.max(1, nb)));
+    const widths = [specW, ...Array(nb).fill(brandW)];
+    let rows = _row([{t:'รายละเอียดคุณลักษณะเฉพาะของพัสดุ', w:specW, center:true},
+                     ...d.brands.map(x => ({t:x, w:brandW, center:true}))], {hdr:true});
+    d.mtx.forEach(r => {
+      rows += _row([{t:r.spec, w:specW},
+                    ...Array.from({length:nb}, (_, i) => ({t:r.vals[i] || '', w:brandW}))]);
+    });
+    b += _tbl(widths, rows);
+    b += '<w:p/>';
+
+    // Differences
+    b += _para(n.p3, {sz:24, justify:true, firstLine:720, spacing:120});
+    d.diffs.forEach((t, i) => b += _para((i+1) + '. ' + t, {sz:24, justify:true, indent:720, spacing:120}));
+    if (!d.diffs.length) b += _para('1. ' + BLANK, {sz:24, indent:720, spacing:120});
+
+    // Impacts
+    b += _para(n.p4, {sz:24, justify:true, firstLine:720, spacing:120});
+    d.impacts.forEach((t, i) => b += _para((i+1) + '. ' + t, {sz:24, justify:true, indent:720, spacing:120}));
+    if (!d.impacts.length) b += _para('1. ' + BLANK, {sz:24, indent:720, spacing:120});
+
+    // Conclusion
+    b += _para(n.p5, {sz:24, justify:true, firstLine:720, spacing:320});
+
+    b += '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/>'
+      + '<w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1418" w:header="709" w:footer="709" w:gutter="0"/></w:sectPr>';
+
+    const ns = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" '
+             + 'xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+    return '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
+      + '<w:document ' + ns + '><w:body>' + b + '</w:body></w:document>';
+  }
+
+  async function saveAsWord(){
+    const btn = document.getElementById('btn-save-word');
+    const orig = btn ? btn.textContent : '';
+    if (btn) { btn.textContent = '⏳ กำลังสร้าง...'; btn.disabled = true; }
+    try {
+      const enc = new TextEncoder();
+      const ct = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>';
+      const rels = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>';
+      const wrels = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"></Relationships>';
+      const zip = _buildZip([
+        {name:'[Content_Types].xml', data:enc.encode(ct)},
+        {name:'_rels/.rels', data:enc.encode(rels)},
+        {name:'word/document.xml', data:enc.encode(buildDocxXml())},
+        {name:'word/_rels/document.xml.rels', data:enc.encode(wrels)},
+      ]);
+      const name = (val('item-name') || 'เหตุผลในการจัดซื้อ').replace(/[/\\?%*:|"<>]/g,'_');
+      saveFile(name + '_เหตุผลจัดซื้อ.docx', new Blob([zip], {type:'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}));
+      if (btn) btn.textContent = '✅ บันทึกแล้ว!';
+      setTimeout(() => { if (btn) { btn.textContent = orig; btn.disabled = false; } }, 2500);
+    } catch(e) {
+      console.error(e);
+      if (e && e.code === 'declined') { if (btn) { btn.textContent = orig; btn.disabled = false; } return; }
+      if (btn) {
+        btn.textContent = '❌ ' + ((e && e.code) || (e && e.message) || 'เกิดข้อผิดพลาด');
+        setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000);
+      }
+    }
+  }
+
+  /* ══════════ Excel (CSV) ══════════ */
+  function _cc(v){ const s = String(v==null?'':v); return /[",\n\r]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s; }
+
+  function buildCSV(){
+    const d = collect();
+    const maxCols = 3 + d.brands.length;
+    const pad = arr => { const a = arr.slice(); while (a.length < maxCols) a.push(''); return a; };
+    const rows = [];
+    rows.push(pad(['หมวด','หัวข้อ','รายละเอียด', ...d.brands.map((b,i)=>'คอลัมน์ '+(i+1))]));
+
+    const G = 'ข้อมูลทั่วไป';
+    [['ชื่อครุภัณฑ์',d.item],['สถานที่ / ที่ตั้ง',d.place],['จำนวน',d.qty],['หน่วยนับ',d.unit],
+     ['ปีงบประมาณ',d.year],['วงเงิน (บาท)',d.amount],['วงเงิน (ตัวอักษร)',d.amountText],
+     ['หน่วยงาน',d.org],['วันที่จัดทำ',d.date]]
+      .forEach(([k,v]) => rows.push(pad([G,k,v])));
+
+    rows.push(pad(['ที่มาและความจำเป็น','ที่มาของงบประมาณและความจำเป็น',d.origin]));
+    rows.push(pad(['บริบทและความสำคัญ','สภาพการณ์ปัจจุบัน',d.context]));
+    rows.push(pad(['บริบทและความสำคัญ','ความสำคัญต่อการเรียนการสอน',d.importance]));
+
+    rows.push(pad(['ตารางเปรียบเทียบ','', 'คุณลักษณะที่กำหนด', ...d.brands]));
+    d.mtx.forEach((r,i) => rows.push(pad(['ตารางเปรียบเทียบ','ข้อ '+(i+1), r.spec, ...r.vals])));
+
+    d.diffs.forEach((t,i)   => rows.push(pad(['สรุปข้อแตกต่าง','ข้อ '+(i+1), t])));
+    d.impacts.forEach((t,i) => rows.push(pad(['ผลกระทบหากไม่จัดซื้อ','ข้อ '+(i+1), t])));
+
+    rows.push(pad(['สรุปและข้อกฎหมาย','ยี่ห้อที่เลือก',d.brand]));
+    rows.push(pad(['สรุปและข้อกฎหมาย','รุ่นที่เลือก',d.model]));
+    rows.push(pad(['สรุปและข้อกฎหมาย','ตัวแทนจำหน่าย',d.dealer]));
+    rows.push(pad(['สรุปและข้อกฎหมาย','สถานะตัวแทนจำหน่าย', d.dealerSole ? 'ตัวแทนจำหน่ายเพียงรายเดียวในประเทศไทย' : 'มีตัวแทนจำหน่ายหลายราย']));
+    rows.push(pad(['สรุปและข้อกฎหมาย','อ้างอิงตามกฎหมาย',d.law]));
+
+    return '﻿' + rows.map(r => r.map(_cc).join(',')).join('\r\n');
+  }
+
+
+  /* Standalone build: the save buttons always work here */
+  ['btn-save-word'].forEach(function(id){
+    const b = document.getElementById(id);
+    if (b) b.style.display = '';
+  });
+
+
+  /* ══════════ Draft autosave ══════════
+     The form lives on an ordinary web host, so browser storage is available.
+     Everything stays in the visitor's own browser — nothing is sent anywhere. */
+  const DRAFT_KEY = 'fibo-reason-draft';
+  let draftTimer = null, draftOn = true;
+
+  function draftFields(){
+    return [...document.querySelectorAll('.doc input, .doc textarea, .doc select')];
+  }
+
+  function draftCounts(){
+    return {
+      brands:  document.querySelectorAll('#mtx-head .mtx-brand').length,
+      mtx:     document.querySelectorAll('#mtx-body tr').length,
+      diffs:   document.querySelectorAll('#diff-list .nitem').length,
+      impacts: document.querySelectorAll('#impact-list .nitem').length
+    };
+  }
+
+  function draftRebuild(c){
+    while (document.querySelectorAll('#mtx-head .mtx-brand').length < (c.brands || 0)) addMtxBrand();
+    const body = document.getElementById('mtx-body');
+    if (body) {
+      while (body.querySelectorAll('tr').length > (c.mtx || 0) && body.lastElementChild) body.lastElementChild.remove();
+      while (body.querySelectorAll('tr').length < (c.mtx || 0)) addMtxRow('');
+    }
+    [['diff-list', c.diffs], ['impact-list', c.impacts]].forEach(function(pair){
+      const list = document.getElementById(pair[0]);
+      if (!list) return;
+      const want = pair[1] || 0;
+      while (list.querySelectorAll('.nitem').length > want && list.lastElementChild) list.lastElementChild.remove();
+      while (list.querySelectorAll('.nitem').length < want) addNItem(pair[0], '');
+      if (typeof renumberList === 'function') renumberList(list);
+    });
+  }
+
+
+  function readDraft(){
+    return {
+      v: 1,
+      ts: Date.now(),
+      counts: draftCounts(),
+      vals: draftFields().map(function(el){
+        return (el.type === 'checkbox' || el.type === 'radio') ? (el.checked ? 1 : 0) : el.value;
+      })
+    };
+  }
+
+  function applyDraft(d){
+    if (!d || !d.vals) return false;
+    try { draftRebuild(d.counts || {}); } catch(e) {}
+    const els = draftFields();
+    d.vals.forEach(function(v, i){
+      const el = els[i];
+      if (!el) return;
+      if (el.type === 'checkbox' || el.type === 'radio') el.checked = !!v;
+      else el.value = v;
+    });
+    if (typeof syncEchoes === 'function') syncEchoes();
+    return true;
+  }
+
+  function stamp(ts){
+    const d = new Date(ts);
+    const p = function(n){ return String(n).padStart(2,'0'); };
+    return p(d.getDate()) + '/' + p(d.getMonth()+1) + ' ' + p(d.getHours()) + ':' + p(d.getMinutes());
+  }
+
+  function setDraftStatus(state, text){
+    const el = document.getElementById('draft-status');
+    if (!el) return;
+    el.dataset.state = state;
+    el.innerHTML = '<span class="dot"></span>' + text;
+  }
+
+  function saveDraft(){
+    if (!draftOn) return;
+    try {
+      const d = readDraft();
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(d));
+      setDraftStatus('saved', 'บันทึกร่างอัตโนมัติ · ' + stamp(d.ts));
+    } catch(e) {
+      draftOn = false;
+      setDraftStatus('off', 'บันทึกร่างไม่ได้ในเบราว์เซอร์นี้');
+    }
+  }
+
+  function queueSave(){
+    if (!draftOn) return;
+    setDraftStatus('saving', 'กำลังบันทึก...');
+    clearTimeout(draftTimer);
+    draftTimer = setTimeout(saveDraft, 700);
+  }
+
+  function clearDraft(){
+    if (!confirm('ล้างร่างที่บันทึกไว้ และเริ่มกรอกใหม่ทั้งหมด?\n\nข้อมูลที่กรอกอยู่ตอนนี้จะหายไป กดยกเลิกถ้ายังไม่แน่ใจ')) return;
+    draftOn = false;                 // stop autosave AND the beforeunload save
+    clearTimeout(draftTimer);
+    try { localStorage.removeItem(DRAFT_KEY); } catch(e) {}
+    location.reload();
+  }
+
+  (function initDraft(){
+    let saved = null;
+    try {
+      const raw = localStorage.getItem(DRAFT_KEY);
+      if (raw) saved = JSON.parse(raw);
+      localStorage.setItem(DRAFT_KEY + ':probe', '1');
+      localStorage.removeItem(DRAFT_KEY + ':probe');
+    } catch(e) {
+      draftOn = false;
+      setDraftStatus('off', 'บันทึกร่างไม่ได้ในเบราว์เซอร์นี้');
+    }
+
+    if (draftOn && saved && applyDraft(saved)) {
+      const bar = document.createElement('div');
+      bar.className = 'draft-restored';
+      bar.innerHTML = '<span>↩️ กู้ร่างที่บันทึกไว้เมื่อ <strong>' + stamp(saved.ts)
+        + '</strong> ให้แล้ว — กรอกต่อได้เลย</span>'
+        + '<button type="button">เริ่มกรอกใหม่</button>';
+      bar.querySelector('button').addEventListener('click', clearDraft);
+      const doc = document.querySelector('.doc');
+      const meta = doc.querySelector('.doc-meta');
+      doc.insertBefore(bar, meta ? meta.nextSibling : doc.firstChild);
+      setDraftStatus('saved', 'บันทึกร่างอัตโนมัติ · ' + stamp(saved.ts));
+    } else if (draftOn) {
+      setDraftStatus('saved', 'บันทึกร่างอัตโนมัติ');
+    }
+
+    document.addEventListener('input',  queueSave);
+    document.addEventListener('change', queueSave);
+    document.addEventListener('click', function(e){
+      if (e.target.closest('.add-row-btn, .btn-add-row, .nitem-del, .row-x')) setTimeout(queueSave, 60);
+    });
+    window.addEventListener('beforeunload', function(){ clearTimeout(draftTimer); saveDraft(); });
+  })();
+
+</script>
+
+</body>
+</html>
